@@ -1,16 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://bs3v544mdd2bt"]
+[gd_scene load_steps=7 format=3 uid="uid://bs3v544mdd2bt"]
 
 [ext_resource type="Texture2D" uid="uid://u4nivdxwnk5" path="res://Art/FrogBody.png" id="1_1bxl4"]
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_sakr7"]
 [ext_resource type="Texture2D" uid="uid://cjyus7n1843d3" path="res://Art/FrogEye.png" id="2_0ksxx"]
 [ext_resource type="Texture2D" uid="uid://csx4rujhe8qgh" path="res://Art/FrogMouth.png" id="4_yj127"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fbm7h"]
+friction = 0.8
+bounce = 0.2
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iyk4d"]
 radius = 72.0
 height = 144.0
 
 [node name="Player" type="RigidBody2D"]
+collision_layer = 5
 mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_fbm7h")
 script = ExtResource("1_sakr7")
 
 [node name="Body" type="Sprite2D" parent="."]
@@ -44,5 +50,7 @@ one_shot = true
 zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
 position_smoothing_speed = 32.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [connection signal="timeout" from="TongueCooldown" to="." method="_on_tongue_cooldown_timeout"]

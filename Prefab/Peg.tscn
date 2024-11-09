@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqwlitg3xcvbi"]
+
+[ext_resource type="Script" path="res://Script/Peg.gd" id="1_g5tl8"]
+[ext_resource type="Texture2D" uid="uid://bwjlr7smksp8t" path="res://Art/Peg/Peg_Blue_Normal.png" id="1_ghbs7"]
+[ext_resource type="Texture2D" uid="uid://1io4nafvox78" path="res://Art/Peg/Peg_Ring.png" id="3_yqxkg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rbv35"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_58lcd"]
+radius = 80.0
+
+[sub_resource type="Curve" id="Curve_3unll"]
+max_value = 1.71
+_data = [Vector2(0.0360169, 0.116708), 0.0, 0.0, 0, 0, Vector2(1, 1.4111), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Peg" type="StaticBody2D"]
+script = ExtResource("1_g5tl8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rbv35")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_ghbs7")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_58lcd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 1
+one_shot = true
+speed_scale = 4.0
+texture = ExtResource("3_yqxkg")
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_3unll")
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

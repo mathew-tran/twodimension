@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dajl1y42u1846"]
+[gd_scene load_steps=4 format=3 uid="uid://dajl1y42u1846"]
 
 [ext_resource type="PackedScene" uid="uid://bs3v544mdd2bt" path="res://Prefab/Player.tscn" id="1_ef0dd"]
 [ext_resource type="PackedScene" uid="uid://xepyejc21pw7" path="res://Prefab/Environment/GroundTile.tscn" id="2_yiuob"]
+[ext_resource type="PackedScene" uid="uid://bqwlitg3xcvbi" path="res://Prefab/Peg.tscn" id="3_ihwis"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -85,3 +86,36 @@ position = Vector2(1216, 64)
 
 [node name="Player" parent="." instance=ExtResource("1_ef0dd")]
 position = Vector2(814, 448)
+
+[node name="Peg" parent="." instance=ExtResource("3_ihwis")]
+position = Vector2(1056, 256)
+
+[node name="Peg2" parent="." instance=ExtResource("3_ihwis")]
+position = Vector2(1056, -160)
+
+[node name="Peg3" parent="." instance=ExtResource("3_ihwis")]
+position = Vector2(1920, -224)
+
+[node name="Peg4" parent="." instance=ExtResource("3_ihwis")]
+position = Vector2(2240, 64)
+
+[node name="Peg5" parent="." instance=ExtResource("3_ihwis")]
+position = Vector2(1856, 416)
+
+[node name="Peg6" parent="." instance=ExtResource("3_ihwis")]
+position = Vector2(1664, -32)
+
+[node name="Peg7" parent="." instance=ExtResource("3_ihwis")]
+position = Vector2(1408, -672)
+
+[node name="Peg8" parent="." instance=ExtResource("3_ihwis")]
+position = Vector2(3136, -832)
+
+[node name="Peg9" parent="." instance=ExtResource("3_ihwis")]
+position = Vector2(416, -1024)
+
+[node name="Peg10" parent="." instance=ExtResource("3_ihwis")]
+position = Vector2(-320, 64)
+
+[node name="Peg11" parent="." instance=ExtResource("3_ihwis")]
+position = Vector2(-576, 640)
