@@ -3,47 +3,29 @@ extends RigidBody2D
 
 var Eyes = []
 
-var InitialTonguePosition = Vector2.ZERO
-
-var TongueSpeed = 1200
-var MaxTongueSpeed = 3000
-
 var MoveSpeed = 400
 
-
+@onready var TongueEndClass = preload("res://Prefab/TongueEnd.tscn")
+var TongueEndRef = null
 
 func _ready():
 	Eyes.append($Eye1)
 	Eyes.append($Eye2)
-	InitialTonguePosition = $Line2D.points[1]
 
 
 func UpdateEyes(delta):
 	for eye in Eyes:
 		if eye:
 			eye.look_at(get_global_mouse_position())	
-	return
 	
 func _process(delta):
-	UpdateEyes(delta)
-	if IsConnected():
-		MoveWithTongueConnected(delta)
-	else:
-		Move(delta)
+	UpdateEyes(delta)		
 	
+func _physics_process(delta):
+	Move(delta)
+		
 func IsConnected():
-	return $RayCast2D.is_colliding()
-	
-func MoveWithTongueConnected(delta):
-	if IsConnected():
-
-		if global_position.distance_to($RayCast2D.get_collision_point()) < 100:
-			RevertTongue()
-			return
-		global_position = global_position.move_toward($RayCast2D.get_collision_point(), delta * TongueSpeed)
-		linear_velocity = Vector2.ZERO
-		gravity_scale = 0
-		$Line2D.points[1] = to_local($RayCast2D.get_collision_point())
+	return 
 		
 func Move(delta):
 	if Input.is_action_pressed("MoveLeft"):
@@ -55,33 +37,36 @@ func CanUseTongue():
 	return $TongueCooldown.time_left == 0.0
 	
 func _input(event):
-	if event.is_action_pressed("Detach") and IsConnected():
+	if event.is_action_pressed("Detach") and CanUseTongue():
 		RevertTongue()
 		
-	if event.is_action_pressed("Click") and CanUseTongue():
+	if Input.is_action_just_released("Click"):
+		RevertTongue()
+		
+	if Input.is_action_just_pressed("Click") and CanUseTongue():
+		print("revert-click")
 		$TongueCooldown.start()
-		rotation_degrees = 0
-		TongueSpeed = linear_velocity.length()
-		if TongueSpeed > MaxTongueSpeed:
-			TongueSpeed = MaxTongueSpeed
-			
-		await  get_tree().process_frame
+		RevertTongue()
+		
 		var direction = to_local(get_global_mouse_position()).normalized()
-		$RayCast2D.target_position = direction * 5200
+		$RayCast2D.target_position = direction * 1200
 		$RayCast2D.force_raycast_update()
-		if IsConnected():
-			$Line2D.points[1] = to_local($RayCast2D.get_collision_point())
-		else: 
-			$Line2D.points[1] = direction * 5200
-			$RayCast2D.target_position = Vector2.ZERO
-			$RayCast2D.force_raycast_update()
+		
+		if $RayCast2D.is_colliding():
+			TongueEndRef = TongueEndClass.instantiate()
+			get_parent().add_child(TongueEndRef)
+			TongueEndRef.global_position = $RayCast2D.get_collision_point()
+			TongueEndRef.get_node("PinJoint2D").node_b = get_path()
+			angular_velocity = 0
 			$RayCast2D.enabled = false
 			
 func RevertTongue():
+	print("reverted")
 	$RayCast2D.target_position = Vector2.ZERO
-	$Line2D.points[1] = InitialTonguePosition
+
 	$RayCast2D.force_raycast_update()
-	gravity_scale = 1
+	if is_instance_valid(TongueEndRef):
+		TongueEndRef.queue_free()
 
 
 func _on_tongue_cooldown_timeout():

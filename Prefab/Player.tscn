@@ -1,16 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bs3v544mdd2bt"]
+[gd_scene load_steps=6 format=3 uid="uid://bs3v544mdd2bt"]
 
 [ext_resource type="Texture2D" uid="uid://u4nivdxwnk5" path="res://Art/FrogBody.png" id="1_1bxl4"]
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_sakr7"]
 [ext_resource type="Texture2D" uid="uid://cjyus7n1843d3" path="res://Art/FrogEye.png" id="2_0ksxx"]
 [ext_resource type="Texture2D" uid="uid://csx4rujhe8qgh" path="res://Art/FrogMouth.png" id="4_yj127"]
-[ext_resource type="Texture2D" uid="uid://yhfpti6y8hb" path="res://Art/FrogTongue.png" id="5_lllbs"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k5lk2"]
-radius = 64.0312
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iyk4d"]
+radius = 72.0
+height = 144.0
 
 [node name="Player" type="RigidBody2D"]
-mass = 0.5
+mass = 0.2
 script = ExtResource("1_sakr7")
 
 [node name="Body" type="Sprite2D" parent="."]
@@ -28,19 +28,11 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_0ksxx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_k5lk2")
+shape = SubResource("CapsuleShape2D_iyk4d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1, 0.2)
 texture = ExtResource("4_yj127")
-
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 0, -10)
-width = 40.0
-texture = ExtResource("5_lllbs")
-texture_mode = 1
-joint_mode = 2
-end_cap_mode = 2
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
@@ -50,5 +42,7 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.7, 0.7)
+position_smoothing_enabled = true
+position_smoothing_speed = 32.0
 
 [connection signal="timeout" from="TongueCooldown" to="." method="_on_tongue_cooldown_timeout"]
