@@ -52,13 +52,17 @@ func _input(event):
 		$RayCast2D.target_position = direction * 1200
 		$RayCast2D.force_raycast_update()
 		
-		if $RayCast2D.is_colliding():
-			TongueEndRef = TongueEndClass.instantiate()
-			get_parent().add_child(TongueEndRef)
+		TongueEndRef = TongueEndClass.instantiate()
+		TongueEndRef.OwnerObject = self
+		get_parent().add_child(TongueEndRef)
+		if $RayCast2D.is_colliding():			
 			TongueEndRef.global_position = $RayCast2D.get_collision_point()
 			TongueEndRef.get_node("PinJoint2D").node_b = get_path()
 			angular_velocity = 0
 			$RayCast2D.enabled = false
+		else:
+			TongueEndRef.IntendedPosition = global_position
+			TongueEndRef.global_position = get_global_mouse_position()
 			
 func RevertTongue():
 	print("reverted")
@@ -66,7 +70,7 @@ func RevertTongue():
 
 	$RayCast2D.force_raycast_update()
 	if is_instance_valid(TongueEndRef):
-		TongueEndRef.queue_free()
+		TongueEndRef.Kill()
 
 
 func _on_tongue_cooldown_timeout():

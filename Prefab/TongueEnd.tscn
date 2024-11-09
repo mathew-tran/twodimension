@@ -33,3 +33,9 @@ texture = ExtResource("2_ugfe1")
 texture_mode = 1
 joint_mode = 2
 end_cap_mode = 2
+
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]
