@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dajl1y42u1846"]
+
+[ext_resource type="PackedScene" uid="uid://bs3v544mdd2bt" path="res://Prefab/Player.tscn" id="1_ef0dd"]
+[ext_resource type="PackedScene" uid="uid://xepyejc21pw7" path="res://Prefab/Environment/GroundTile.tscn" id="2_yiuob"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ef0dd")]
+position = Vector2(814, 448)
+
+[node name="Tile" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(832, 960)
+
+[node name="Tile2" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(960, 960)
+
+[node name="Tile3" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(704, 960)
+
+[node name="Tile4" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(576, 960)
+
+[node name="Tile5" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(576, 64)

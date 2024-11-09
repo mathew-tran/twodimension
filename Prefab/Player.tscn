@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs3v544mdd2bt"]
+
+[ext_resource type="Texture2D" uid="uid://u4nivdxwnk5" path="res://Art/FrogBody.png" id="1_1bxl4"]
+[ext_resource type="Script" path="res://Script/Player.gd" id="1_sakr7"]
+[ext_resource type="Texture2D" uid="uid://cjyus7n1843d3" path="res://Art/FrogEye.png" id="2_0ksxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndiwg"]
+size = Vector2(128, 128)
+
+[node name="Player" type="RigidBody2D"]
+script = ExtResource("1_sakr7")
+
+[node name="Body" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1bxl4")
+
+[node name="Eye1" type="Sprite2D" parent="."]
+position = Vector2(-40, -62)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0ksxx")
+
+[node name="Eye2" type="Sprite2D" parent="."]
+position = Vector2(38, -60)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0ksxx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ndiwg")
