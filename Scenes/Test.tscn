@@ -54,6 +54,54 @@ position = Vector2(2240, 960)
 [node name="Tile18" parent="." instance=ExtResource("2_yiuob")]
 position = Vector2(2112, 960)
 
+[node name="Tile27" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(4128, 960)
+
+[node name="Tile28" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(4256, 960)
+
+[node name="Tile29" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(4000, 960)
+
+[node name="Tile30" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(3872, 960)
+
+[node name="Tile31" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(7584, 960)
+
+[node name="Tile32" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(7712, 960)
+
+[node name="Tile33" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(7456, 960)
+
+[node name="Tile34" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(7328, 960)
+
+[node name="Tile35" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(9376, -416)
+
+[node name="Tile36" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(9504, -416)
+
+[node name="Tile37" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(9248, -416)
+
+[node name="Tile38" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(9120, -416)
+
+[node name="Tile39" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(10848, -2208)
+
+[node name="Tile40" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(10976, -2208)
+
+[node name="Tile41" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(10720, -2208)
+
+[node name="Tile42" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(10592, -2208)
+
 [node name="Tile19" parent="." instance=ExtResource("2_yiuob")]
 position = Vector2(-192, 960)
 
@@ -93,23 +141,8 @@ position = Vector2(1056, 256)
 [node name="Peg2" parent="." instance=ExtResource("3_ihwis")]
 position = Vector2(1056, -160)
 
-[node name="Peg3" parent="." instance=ExtResource("3_ihwis")]
-position = Vector2(1920, -224)
-
-[node name="Peg4" parent="." instance=ExtResource("3_ihwis")]
-position = Vector2(2240, 64)
-
-[node name="Peg5" parent="." instance=ExtResource("3_ihwis")]
-position = Vector2(1856, 416)
-
-[node name="Peg6" parent="." instance=ExtResource("3_ihwis")]
-position = Vector2(1664, -32)
-
 [node name="Peg7" parent="." instance=ExtResource("3_ihwis")]
 position = Vector2(1408, -672)
-
-[node name="Peg8" parent="." instance=ExtResource("3_ihwis")]
-position = Vector2(3136, -832)
 
 [node name="Peg9" parent="." instance=ExtResource("3_ihwis")]
 position = Vector2(416, -1024)

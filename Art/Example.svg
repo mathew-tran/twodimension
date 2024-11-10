@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.71713664"
-     inkscape:cx="606.57896"
-     inkscape:cy="168.02934"
+     inkscape:zoom="5.7370931"
+     inkscape:cx="564.39732"
+     inkscape:cy="432.71043"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-7"
@@ -33,7 +33,20 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
-     id="defs1" />
+     id="defs1">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect4"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+  </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -80,6 +93,45 @@
       <ellipse
          style="fill:#211f21;stroke:#211f21;stroke-width:0.0354097"
          id="ellipse4"
+         cx="77.768227"
+         cy="112.05762"
+         rx="1.4549489"
+         ry="1.3163824" />
+    </g>
+    <g
+       id="g5-3"
+       transform="matrix(0.80394661,0,0,0.7216433,36.750144,31.033383)">
+      <ellipse
+         style="fill:#6e9202;stroke-width:0.0354097"
+         id="path1-8"
+         cx="74.847412"
+         cy="117.5538"
+         rx="5.0297093"
+         ry="4.8990679" />
+      <ellipse
+         style="fill:#ffffff;stroke:#211f21;stroke-width:0.0354097"
+         id="path2-0"
+         cx="72.495857"
+         cy="113.30795"
+         rx="2.5475154"
+         ry="2.3515525" />
+      <ellipse
+         style="fill:#211f21;stroke:#211f21;stroke-width:0.0354097"
+         id="path3-1"
+         cx="72.479607"
+         cy="112.05762"
+         rx="1.4549489"
+         ry="1.3163824" />
+      <ellipse
+         style="fill:#ffffff;stroke:#211f21;stroke-width:0.0354097"
+         id="ellipse3-0"
+         cx="77.784485"
+         cy="113.30795"
+         rx="2.5475154"
+         ry="2.3515525" />
+      <ellipse
+         style="fill:#211f21;stroke:#211f21;stroke-width:0.0354097"
+         id="ellipse4-7"
          cx="77.768227"
          cy="112.05762"
          rx="1.4549489"
@@ -155,8 +207,8 @@
        id="rect9"
        width="45.524063"
        height="13.826793"
-       x="53.480991"
-       y="96.526672"
+       x="22.435928"
+       y="94.700493"
        ry="1.942956" />
     <rect
        style="fill:#8f5638;stroke:#63342f;stroke-width:2;stroke-dasharray:none"
@@ -356,5 +408,42 @@
          x="207.53107"
          y="121.72673"
          id="tspan51">V</tspan></text>
+    <circle
+       style="fill:#2a75ff;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-opacity:1"
+       id="path4"
+       cx="128.02361"
+       cy="110.22205"
+       r="3.5049689"
+       inkscape:export-filename="Peg\Peg_Blue_Normal.png"
+       inkscape:export-xdpi="463.79999"
+       inkscape:export-ydpi="463.79999" />
+    <circle
+       style="fill:#363db6;fill-opacity:1;stroke:none;stroke-width:0.126316;stroke-linecap:round;stroke-opacity:1"
+       id="circle4"
+       cx="128.02361"
+       cy="110.22205"
+       r="2.2136645" />
+    <circle
+       style="fill:#2a75ff;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-opacity:1"
+       id="circle5"
+       cx="144.57997"
+       cy="110.22205"
+       r="3.5049689"
+       inkscape:export-filename="Peg\Peg_Blue_Highlight.png"
+       inkscape:export-xdpi="463.79999"
+       inkscape:export-ydpi="463.79999" />
+    <circle
+       style="fill:#4bdbbe;fill-opacity:1;stroke:none;stroke-width:0.126316;stroke-linecap:round;stroke-opacity:1"
+       id="circle6"
+       cx="144.57997"
+       cy="110.22205"
+       r="2.2136645" />
+    <path
+       id="circle7"
+       style="fill:#4bdbbe;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-opacity:1"
+       d="M 158.09268 106.717 A 3.5049689 3.5049689 0 0 0 154.58746 110.22221 A 3.5049689 3.5049689 0 0 0 158.09268 113.72691 A 3.5049689 3.5049689 0 0 0 161.59737 110.22221 A 3.5049689 3.5049689 0 0 0 158.09268 106.717 z M 158.09268 108.00839 A 2.2136645 2.2136645 0 0 1 160.30598 110.22221 A 2.2136645 2.2136645 0 0 1 158.09268 112.43551 A 2.2136645 2.2136645 0 0 1 155.87886 110.22221 A 2.2136645 2.2136645 0 0 1 158.09268 108.00839 z "
+       inkscape:export-filename="Peg\Peg_Ring.png"
+       inkscape:export-xdpi="463.79999"
+       inkscape:export-ydpi="463.79999" />
   </g>
 </svg>

@@ -16,26 +16,25 @@ shape = SubResource("CapsuleShape2D_1lp6m")
 one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_fh48y")
 
 [node name="PinJoint2D" type="DampedSpringJoint2D" parent="."]
 node_a = NodePath("..")
-length = 20.0
-rest_length = 40.0
+length = 500.0
 stiffness = 64.0
 damping = 16.0
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, -10)
-width = 40.0
+width = 30.0
 texture = ExtResource("2_ugfe1")
 texture_mode = 1
 joint_mode = 2
 end_cap_mode = 2
 
 [node name="KillTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
 
 [connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

@@ -36,6 +36,9 @@ func Move(delta):
 func CanUseTongue():
 	return $TongueCooldown.time_left == 0.0
 	
+func HasTongue():
+	return is_instance_valid(TongueEndRef)
+	
 func _input(event):
 	if event.is_action_pressed("Detach") and CanUseTongue():
 		RevertTongue()
@@ -63,11 +66,11 @@ func _input(event):
 		else:
 			TongueEndRef.IntendedPosition = global_position
 			TongueEndRef.global_position = get_global_mouse_position()
-			
+		
 func RevertTongue():
 	print("reverted")
 	$RayCast2D.target_position = Vector2.ZERO
-
+	mass = .2
 	$RayCast2D.force_raycast_update()
 	if is_instance_valid(TongueEndRef):
 		TongueEndRef.Kill()

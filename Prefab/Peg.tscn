@@ -16,6 +16,7 @@ _data = [Vector2(0.0360169, 0.116708), 0.0, 0.0, 0, 0, Vector2(1, 1.4111), 0.0, 
 point_count = 2
 
 [node name="Peg" type="StaticBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_g5tl8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
