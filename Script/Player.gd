@@ -4,7 +4,7 @@ extends RigidBody2D
 var Eyes = []
 
 var MoveSpeed = 400
-
+var MaxLength = 1200
 @onready var TongueEndClass = preload("res://Prefab/TongueEnd.tscn")
 var TongueEndRef = null
 
@@ -46,17 +46,18 @@ func _input(event):
 	if Input.is_action_just_released("Click"):
 		RevertTongue()
 		
-	if Input.is_action_just_pressed("Click") and CanUseTongue():
+	if Input.is_action_pressed("Click") and CanUseTongue() and HasTongue() == false:
 		print("revert-click")
 		$TongueCooldown.start()
 		RevertTongue()
 		
 		var direction = to_local(get_global_mouse_position()).normalized()
-		$RayCast2D.target_position = direction * 1200
+		$RayCast2D.target_position = direction * MaxLength
 		$RayCast2D.force_raycast_update()
 		
 		TongueEndRef = TongueEndClass.instantiate()
 		TongueEndRef.OwnerObject = self
+		TongueEndRef.MaxLength = MaxLength
 		get_parent().add_child(TongueEndRef)
 		if $RayCast2D.is_colliding():			
 			TongueEndRef.global_position = $RayCast2D.get_collision_point()
@@ -64,7 +65,6 @@ func _input(event):
 			angular_velocity = 0
 			$RayCast2D.enabled = false
 		else:
-			TongueEndRef.IntendedPosition = global_position
 			TongueEndRef.global_position = get_global_mouse_position()
 		
 func RevertTongue():

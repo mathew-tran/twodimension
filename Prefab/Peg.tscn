@@ -17,6 +17,8 @@ point_count = 2
 
 [node name="Peg" type="StaticBody2D"]
 scale = Vector2(2, 2)
+disable_mode = 1
+constant_angular_velocity = 1.0472
 script = ExtResource("1_g5tl8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

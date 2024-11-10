@@ -1,22 +1,20 @@
 extends StaticBody2D
 
-var IntendedPosition = Vector2.ZERO
 var OwnerObject = null
 
 var bIsKilled = false
 
 var Progress = 0.0
 
-var PullSpeed = 25
+var PullSpeed = 1000
 
 var bInitialImpulse = false
-
-var MaxLength = 500
+var MaxLength = 200
 
 func _process(delta):
 	$Line2D.points[1] = to_local(OwnerObject.global_position)
 	if bIsKilled:
-		Progress += delta * 10
+		Progress += delta * 20
 		$Line2D.points[0] = to_local(lerp(self.global_position, OwnerObject.global_position, Progress))
 		$Sprite2D.visible = false
 		if Progress >= 1:
@@ -37,7 +35,6 @@ func _physics_process(delta):
 	var speed = PullSpeed
 	if bInitialImpulse:
 		speed *= 10
-		ForceUpdateJoint()
 		
 	if Input.is_action_pressed("Down"):
 		IncreaseTongueLength(speed * delta)
@@ -49,21 +46,20 @@ func _physics_process(delta):
 	
 	
 func IncreaseTongueLength(amount):
-
-	ForceUpdateJoint()
+	if global_position.distance_to(OwnerObject.global_position) >= MaxLength:
+		return
+	$PinJoint2D.node_b = get_path()
 	var direction = (OwnerObject.global_position - global_position).normalized()
-	OwnerObject.apply_impulse(direction * PullSpeed)
+	OwnerObject.global_position += direction * 20
 	bInitialImpulse = false
-	print($PinJoint2D.length)
+	$PinJoint2D.node_b = OwnerObject.get_path()
 	
 func DecreaseTongueLength(amount):
-	
-	ForceUpdateJoint()
+	$PinJoint2D.node_b = get_path()
 	var direction = (OwnerObject.global_position - global_position).normalized()
-	OwnerObject.apply_impulse(direction * -PullSpeed)
-	bInitialImpulse = false
-
-	print($PinJoint2D.length)
+	OwnerObject.global_position += direction * -20
+	bInitialImpulse = false	
+	$PinJoint2D.node_b = OwnerObject.get_path()
 	
 func _on_kill_timer_timeout():
 	Kill()
@@ -73,8 +69,4 @@ func Kill():
 		return
 	bIsKilled = true
 
-func ForceUpdateJoint():
-	if global_position.distance_to(OwnerObject.global_position) < MaxLength:
-		$PinJoint2D.node_b = get_path()
-		await get_tree().process_frame
-		$PinJoint2D.node_b = OwnerObject.get_path()
+			

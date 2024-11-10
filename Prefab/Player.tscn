@@ -15,7 +15,7 @@ height = 144.0
 
 [node name="Player" type="RigidBody2D"]
 collision_layer = 5
-mass = 0.2
+mass = 0.3
 physics_material_override = SubResource("PhysicsMaterial_fbm7h")
 gravity_scale = 2.0
 freeze_mode = 1
