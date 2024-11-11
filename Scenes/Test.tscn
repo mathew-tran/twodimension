@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dajl1y42u1846"]
+[gd_scene load_steps=6 format=3 uid="uid://dajl1y42u1846"]
 
 [ext_resource type="PackedScene" uid="uid://bs3v544mdd2bt" path="res://Prefab/Player.tscn" id="1_ef0dd"]
 [ext_resource type="PackedScene" uid="uid://c1jfdqvyseess" path="res://Prefab/GoalPost.tscn" id="2_1jjdj"]
 [ext_resource type="PackedScene" uid="uid://xepyejc21pw7" path="res://Prefab/Environment/GroundTile.tscn" id="2_yiuob"]
 [ext_resource type="PackedScene" uid="uid://bqwlitg3xcvbi" path="res://Prefab/Peg.tscn" id="3_ihwis"]
+[ext_resource type="PackedScene" uid="uid://cmg045qldjb6b" path="res://Prefab/GameManager.tscn" id="5_8i8bs"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("5_8i8bs")]
 
 [node name="Tile" parent="." instance=ExtResource("2_yiuob")]
 position = Vector2(832, 960)
