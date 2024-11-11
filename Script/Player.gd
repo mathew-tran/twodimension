@@ -47,7 +47,6 @@ func _input(event):
 		RevertTongue()
 		
 	if Input.is_action_pressed("Click") and CanUseTongue() and HasTongue() == false:
-		print("revert-click")
 		$TongueCooldown.start()
 		RevertTongue()
 		
@@ -68,9 +67,8 @@ func _input(event):
 			TongueEndRef.global_position = get_global_mouse_position()
 		
 func RevertTongue():
-	print("reverted")
 	$RayCast2D.target_position = Vector2.ZERO
-	mass = .2
+
 	$RayCast2D.force_raycast_update()
 	if is_instance_valid(TongueEndRef):
 		TongueEndRef.Kill()
