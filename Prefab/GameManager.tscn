@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmg045qldjb6b"]
+[gd_scene load_steps=6 format=3 uid="uid://cmg045qldjb6b"]
 
 [ext_resource type="Script" path="res://Script/Game.gd" id="1_8j5w0"]
 [ext_resource type="PackedScene" uid="uid://b0pjv7x6stdn1" path="res://Prefab/UI/GameTime.tscn" id="2_3nmq8"]
+[ext_resource type="PackedScene" uid="uid://dgj34h1nuu70p" path="res://Prefab/UI/RestartControl.tscn" id="3_026wr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bn8yv"]
 draw_center = false
@@ -28,6 +29,7 @@ script = ExtResource("1_8j5w0")
 wait_time = 0.01
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
@@ -43,5 +45,13 @@ offset_left = -150.0
 offset_top = 18.0
 offset_right = 150.0
 offset_bottom = 118.0
+
+[node name="GameControls" type="VBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 64.0
+
+[node name="Restart" parent="CanvasLayer/Panel/GameControls" instance=ExtResource("3_026wr")]
+layout_mode = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

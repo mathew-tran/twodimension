@@ -8,21 +8,32 @@ var MaxLength = 1200
 @onready var TongueEndClass = preload("res://Prefab/TongueEnd.tscn")
 var TongueEndRef = null
 
+var bCanMove = true
+
 func _ready():
 	Eyes.append($Eye1)
 	Eyes.append($Eye2)
+	Helper.GetGame().GameStateUpdate.connect(OnStateUpdate)
 
-
+func OnStateUpdate(state):
+	bCanMove = false
+	if state == Game.STATE.GAME_WIN:
+		freeze = true
+	elif state == Game.STATE.GAME_LOSS:
+		freeze = false
+		
 func UpdateEyes(delta):
 	for eye in Eyes:
 		if eye:
 			eye.look_at(get_global_mouse_position())	
 	
 func _process(delta):
-	UpdateEyes(delta)		
+	if bCanMove:
+		UpdateEyes(delta)		
 	
 func _physics_process(delta):
-	Move(delta)
+	if bCanMove:
+		Move(delta)
 		
 func IsConnected():
 	return 
@@ -40,6 +51,9 @@ func HasTongue():
 	return is_instance_valid(TongueEndRef)
 	
 func _input(event):
+	if bCanMove == false:
+		return
+		
 	if event.is_action_pressed("Detach") and CanUseTongue():
 		RevertTongue()
 		

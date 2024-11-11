@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgj34h1nuu70p"]
+
+[ext_resource type="Script" path="res://Script/UI/RestartControl.gd" id="1_3ncmn"]
+
+[node name="Restart" type="ProgressBar"]
+custom_minimum_size = Vector2(200, 100)
+show_percentage = false
+script = ExtResource("1_3ncmn")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "(R) to Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.35
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

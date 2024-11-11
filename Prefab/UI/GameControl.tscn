@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bnlefxs4wkn21"]
+
+[node name="ProgressBar" type="ProgressBar"]
+custom_minimum_size = Vector2(200, 100)
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
