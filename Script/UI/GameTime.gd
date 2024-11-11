@@ -10,5 +10,8 @@ func OnTimeUpdate(amount):
 
 func OnStateUpdate(state):
 	if state == Game.STATE.GAME_WIN:
-		modulate = Color.GREEN
-		text += "\n New Record!!!"
+		if Helper.GetLevel().bHasBeatenOldTime:
+			modulate = Color.GREEN
+			text += "\n New Record!!!"
+		else:
+			text += "\n Best Time: " + str(Helper.GetLevel().GetLevelTime()).pad_decimals(2)

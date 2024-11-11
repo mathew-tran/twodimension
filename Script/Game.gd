@@ -17,6 +17,7 @@ var CurrentState = STATE.PLAYING
 func _ready():
 	StartGame()
 	
+	
 func StartGame():
 	$Timer.start()
 	
@@ -28,7 +29,9 @@ func WinGame():
 	if CurrentState != STATE.PLAYING:
 		return
 	CurrentState = STATE.GAME_WIN
+	Helper.GetLevel().SaveData(CurrentTime)
 	StopGame()
+	
 	
 func LoseGame():
 	if CurrentState != STATE.PLAYING:

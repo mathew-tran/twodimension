@@ -19,9 +19,12 @@ func OnStateUpdate(state):
 	bCanMove = false
 	if state == Game.STATE.GAME_WIN:
 		freeze = true
+		if HasTongue():
+			TongueEndRef.bEnabled = false
 	elif state == Game.STATE.GAME_LOSS:
 		freeze = false
-		
+		RevertTongue()
+	
 func UpdateEyes(delta):
 	for eye in Eyes:
 		if eye:

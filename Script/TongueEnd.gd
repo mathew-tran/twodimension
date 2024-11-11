@@ -11,7 +11,11 @@ var PullSpeed = 1000
 var bInitialImpulse = false
 var MaxLength = 200
 
+var bEnabled = true
+
 func _process(delta):
+	if bEnabled == false:
+		return
 	$Line2D.points[1] = to_local(OwnerObject.global_position)
 	if bIsKilled:
 		Progress += delta * 20
@@ -28,7 +32,10 @@ func _process(delta):
 		else:
 			$Line2D.default_color = Color.RED
 			$Sprite2D.modulate = Color.RED
+			
 func _physics_process(delta):
+	if bEnabled == false:
+		return
 	if $PinJoint2D.node_b != OwnerObject.get_path():
 		return
 		
