@@ -61,6 +61,11 @@ position = Vector2(2368, 960)
 [node name="Tile16" parent="." instance=ExtResource("2_yiuob")]
 position = Vector2(2496, 960)
 
+[node name="Tile50" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(2624, 480)
+rotation = 2.35619
+scale = Vector2(10, 1)
+
 [node name="Tile17" parent="." instance=ExtResource("2_yiuob")]
 position = Vector2(2240, 960)
 
@@ -77,7 +82,16 @@ position = Vector2(4256, 960)
 position = Vector2(4000, 960)
 
 [node name="Tile30" parent="." instance=ExtResource("2_yiuob")]
-position = Vector2(3872, 960)
+position = Vector2(1856, 1312)
+
+[node name="Tile47" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(736, 1312)
+
+[node name="Tile48" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(128, 1344)
+
+[node name="Tile49" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(128, 1344)
 
 [node name="Tile31" parent="." instance=ExtResource("2_yiuob")]
 position = Vector2(7584, 960)

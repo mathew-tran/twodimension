@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs3v544mdd2bt"]
+[gd_scene load_steps=10 format=3 uid="uid://bs3v544mdd2bt"]
 
 [ext_resource type="Texture2D" uid="uid://u4nivdxwnk5" path="res://Art/FrogBody.png" id="1_1bxl4"]
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_sakr7"]
@@ -15,6 +15,13 @@ height = 144.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fbpeb"]
 radius = 111.041
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m6f1t"]
+radius = 23.0
+height = 142.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wdjje"]
+height = 44.0
 
 [node name="Player" type="RigidBody2D"]
 z_index = 5
@@ -66,5 +73,128 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalInteract"]
 shape = SubResource("CircleShape2D_fbpeb")
+
+[node name="JointHeadToTail" type="GrooveJoint2D" parent="."]
+position = Vector2(0, 62)
+node_a = NodePath("..")
+node_b = NodePath("../Tail")
+length = 1.0
+initial_offset = 1.0
+
+[node name="Tail" type="RigidBody2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 51)
+collision_layer = 0
+mass = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Tail"]
+position = Vector2(0, -4)
+scale = Vector2(0.5, 0.2)
+texture = ExtResource("1_1bxl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tail"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m6f1t")
+
+[node name="JointBodyToLeftLeg" type="GrooveJoint2D" parent="."]
+position = Vector2(-19, 60)
+node_a = NodePath("../Tail")
+node_b = NodePath("../LeftLeg")
+length = 1.0
+initial_offset = 1.0
+
+[node name="JointBodyToRightLeg" type="GrooveJoint2D" parent="."]
+position = Vector2(17, 60)
+node_a = NodePath("../Tail")
+node_b = NodePath("../RightLeg")
+length = 1.0
+initial_offset = 1.0
+
+[node name="LeftLeg" type="RigidBody2D" parent="."]
+position = Vector2(10, -37)
+collision_layer = 0
+collision_mask = 0
+mass = 0.01
+gravity_scale = 2.0
+angular_damp = 46.672
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftLeg"]
+position = Vector2(-65, 109)
+scale = Vector2(0.3, 0.1)
+texture = ExtResource("1_1bxl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg"]
+position = Vector2(-65, 108)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wdjje")
+
+[node name="LeftArm" type="RigidBody2D" parent="."]
+position = Vector2(19, -76)
+collision_layer = 0
+collision_mask = 0
+mass = 0.01
+gravity_scale = 2.0
+angular_damp = 46.672
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftArm"]
+position = Vector2(-65, 109)
+scale = Vector2(0.3, 0.1)
+texture = ExtResource("1_1bxl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArm"]
+position = Vector2(-65, 108)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wdjje")
+
+[node name="JointBodyToRightArm" type="GrooveJoint2D" parent="."]
+position = Vector2(41, 28)
+node_a = NodePath("../Tail")
+node_b = NodePath("../RightArm")
+length = 1.0
+initial_offset = 1.0
+
+[node name="JointBodyToLeftArm" type="GrooveJoint2D" parent="."]
+position = Vector2(-33, 28)
+node_a = NodePath("../Tail")
+node_b = NodePath("../LeftArm")
+length = 1.0
+initial_offset = 1.0
+
+[node name="RightArm" type="RigidBody2D" parent="."]
+position = Vector2(124, -78)
+collision_layer = 0
+collision_mask = 0
+mass = 0.01
+gravity_scale = 2.0
+angular_damp = 46.672
+
+[node name="Sprite2D" type="Sprite2D" parent="RightArm"]
+position = Vector2(-65, 109)
+scale = Vector2(0.3, 0.1)
+texture = ExtResource("1_1bxl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArm"]
+position = Vector2(-65, 108)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wdjje")
+
+[node name="RightLeg" type="RigidBody2D" parent="."]
+position = Vector2(121, -39)
+collision_layer = 0
+collision_mask = 0
+mass = 0.01
+gravity_scale = 2.0
+angular_damp = 46.672
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RightLeg"]
+position = Vector2(-65, 109)
+scale = Vector2(0.3, 0.1)
+texture = ExtResource("1_1bxl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg"]
+position = Vector2(-65, 108)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wdjje")
 
 [connection signal="timeout" from="TongueCooldown" to="." method="_on_tongue_cooldown_timeout"]
