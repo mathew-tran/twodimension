@@ -19,10 +19,14 @@ func OnStateUpdate(state):
 	bCanMove = false
 	if state == Game.STATE.GAME_WIN:
 		freeze = true
+		for child in get_children():
+			if child is RigidBody2D:
+				child.freeze = true
+				
 		if HasTongue():
 			TongueEndRef.bEnabled = false
 	elif state == Game.STATE.GAME_LOSS:
-		freeze = false
+		freeze = false	
 		RevertTongue()
 	
 func UpdateEyes(delta):

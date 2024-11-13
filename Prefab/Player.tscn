@@ -78,8 +78,6 @@ zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 32.0
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
 [node name="GoalInteract" type="Area2D" parent="."]
 collision_layer = 16384
 collision_mask = 0
@@ -99,6 +97,7 @@ collision_layer = 0
 collision_mask = 0
 mass = 0.01
 gravity_scale = 5.0
+freeze_mode = 1
 angular_damp = 46.672
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftArm"]
@@ -124,6 +123,7 @@ collision_layer = 0
 collision_mask = 0
 mass = 0.01
 gravity_scale = 5.0
+freeze_mode = 1
 angular_damp = 46.672
 
 [node name="Sprite2D" type="Sprite2D" parent="RightArm"]
@@ -148,6 +148,7 @@ collision_layer = 0
 collision_mask = 0
 mass = 0.01
 gravity_scale = 5.0
+freeze_mode = 1
 angular_damp = 46.672
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftLeg"]
@@ -173,6 +174,7 @@ collision_layer = 0
 collision_mask = 0
 mass = 0.01
 gravity_scale = 5.0
+freeze_mode = 1
 angular_damp = 46.672
 metadata/_edit_group_ = true
 
