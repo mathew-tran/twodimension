@@ -95,3 +95,10 @@ func _on_tongue_cooldown_timeout():
 	if IsConnected() == false:
 		RevertTongue()
 		$RayCast2D.enabled = true
+
+func IsOverlapping():
+	var bodies = $CollisionChecker.get_overlapping_bodies()
+	if bodies:
+		if bodies.size() > 1:
+			return true
+	return false

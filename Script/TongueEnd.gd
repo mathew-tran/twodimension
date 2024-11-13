@@ -53,7 +53,7 @@ func _physics_process(delta):
 	
 	
 func IncreaseTongueLength(amount):
-	if global_position.distance_to(OwnerObject.global_position) >= MaxLength:
+	if global_position.distance_to(OwnerObject.global_position) >= MaxLength or OwnerObject.IsOverlapping():
 		return
 	$PinJoint2D.node_b = get_path()
 	var direction = (OwnerObject.global_position - global_position).normalized()
@@ -62,6 +62,8 @@ func IncreaseTongueLength(amount):
 	$PinJoint2D.node_b = OwnerObject.get_path()
 	
 func DecreaseTongueLength(amount):
+	if global_position.distance_to(OwnerObject.global_position) <= 100 or OwnerObject.IsOverlapping():
+		return
 	$PinJoint2D.node_b = get_path()
 	var direction = (OwnerObject.global_position - global_position).normalized()
 	OwnerObject.global_position += direction * -20

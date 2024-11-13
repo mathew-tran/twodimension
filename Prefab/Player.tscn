@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bs3v544mdd2bt"]
+[gd_scene load_steps=13 format=3 uid="uid://bs3v544mdd2bt"]
 
 [ext_resource type="Texture2D" uid="uid://u4nivdxwnk5" path="res://Art/FrogBody.png" id="1_1bxl4"]
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_sakr7"]
@@ -21,6 +21,9 @@ radius = 111.041
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wdjje"]
 height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d57al"]
+radius = 70.0071
 
 [node name="Player" type="RigidBody2D"]
 z_index = 5
@@ -182,5 +185,11 @@ texture = ExtResource("6_sqfv7")
 position = Vector2(-65, 108)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wdjje")
+
+[node name="CollisionChecker" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionChecker"]
+shape = SubResource("CircleShape2D_d57al")
 
 [connection signal="timeout" from="TongueCooldown" to="." method="_on_tongue_cooldown_timeout"]
