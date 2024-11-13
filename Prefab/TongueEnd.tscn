@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cke7m27kojv38"]
+[gd_scene load_steps=6 format=3 uid="uid://cke7m27kojv38"]
 
 [ext_resource type="Texture2D" uid="uid://bi6rwk2t8kq5i" path="res://Art/FrogTongueEnd.png" id="1_fh48y"]
 [ext_resource type="Script" path="res://Script/TongueEnd.gd" id="1_vonob"]
 [ext_resource type="Texture2D" uid="uid://yhfpti6y8hb" path="res://Art/FrogTongue.png" id="2_ugfe1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1lp6m"]
+
+[sub_resource type="Curve" id="Curve_d3cyj"]
+max_value = 4.0
+_data = [Vector2(0, 2.60753), 0.0, 0.0, 0, 0, Vector2(0.971186, 0.0260223), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Node2D" type="StaticBody2D"]
 z_index = 6
@@ -42,5 +47,21 @@ one_shot = true
 [node name="JointRefresh" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 80
+one_shot = true
+speed_scale = 4.0
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+scale_amount_min = 0.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_d3cyj")
+color = Color(1, 0.564067, 0.985796, 1)
 
 [connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

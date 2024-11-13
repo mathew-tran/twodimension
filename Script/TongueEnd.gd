@@ -32,6 +32,9 @@ func _process(delta):
 		else:
 			$Line2D.default_color = Color.RED
 			$Sprite2D.modulate = Color.RED
+	
+func EmitParticle():
+	$CPUParticles2D.emitting = true
 			
 func _physics_process(delta):
 	if bEnabled == false:

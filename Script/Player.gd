@@ -84,6 +84,7 @@ func _input(event):
 			TongueEndRef.get_node("PinJoint2D").node_b = get_path()
 			angular_velocity = 0
 			$RayCast2D.enabled = false
+			TongueEndRef.EmitParticle()
 		else:
 			TongueEndRef.global_position = to_global($RayCast2D.target_position)
 		
