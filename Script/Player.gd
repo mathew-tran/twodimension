@@ -61,10 +61,13 @@ func IsConnected():
 	return 
 		
 func Move(delta):
+	var multiplier = 1
+	if HasTongue():
+		multiplier *= 2
 	if Input.is_action_pressed("MoveLeft"):
-		apply_impulse(Vector2.LEFT * MoveSpeed * delta)
+		apply_impulse(Vector2.LEFT * MoveSpeed * delta * multiplier)
 	if Input.is_action_pressed("MoveRight"):
-		apply_impulse(Vector2.RIGHT * MoveSpeed * delta)
+		apply_impulse(Vector2.RIGHT * MoveSpeed * delta * multiplier)
 
 func CanUseTongue():
 	return $TongueCooldown.time_left == 0.0
