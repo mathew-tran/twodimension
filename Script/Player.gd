@@ -10,6 +10,19 @@ var TongueEndRef = null
 
 var bCanMove = true
 
+var SFX = [
+	"res://Audio/cute_01.ogg",
+	"res://Audio/cute_02.ogg",
+	"res://Audio/cute_03.ogg",
+	"res://Audio/cute_04.ogg",
+	"res://Audio/cute_05.ogg",
+	"res://Audio/cute_06.ogg",
+	"res://Audio/cute_07.ogg",
+	"res://Audio/cute_08.ogg",
+	"res://Audio/cute_09.ogg",
+	"res://Audio/cute_10.ogg",
+]
+
 func _ready():
 	Eyes.append($Eye1)
 	Eyes.append($Eye2)
@@ -25,6 +38,7 @@ func OnStateUpdate(state):
 				
 		if HasTongue():
 			TongueEndRef.bEnabled = false
+		$GruntSFX.play()
 	elif state == Game.STATE.GAME_LOSS:
 		freeze = false	
 		RevertTongue()
@@ -37,6 +51,7 @@ func UpdateEyes(delta):
 func _process(delta):
 	if bCanMove:
 		UpdateEyes(delta)		
+		
 	
 func _physics_process(delta):
 	if bCanMove:
@@ -70,6 +85,7 @@ func _input(event):
 	if Input.is_action_pressed("Click") and CanUseTongue() and HasTongue() == false:
 		$TongueCooldown.start()
 		RevertTongue()
+		AttemptSound()
 		
 		var direction = to_local(get_global_mouse_position()).normalized()
 		$RayCast2D.target_position = direction * MaxLength
@@ -108,3 +124,31 @@ func IsOverlapping():
 		if bodies.size() > 1:
 			return true
 	return false
+
+func AttemptSound():
+	var result = randi() % 100
+	if result > 50:
+		return
+		
+	if $GruntTimer.time_left == 0.0:
+		
+		SFX.shuffle()
+		$GruntSFX.stream = load(SFX[0])
+		$GruntSFX.play()
+		$GruntTimer.wait_time = randf_range(20, 40)
+		$GruntTimer.start()
+		var mouthResult = randi_range(0 ,2)
+		if mouthResult == 0:
+			$Mouth.scale = Vector2(.4,.4)
+		elif mouthResult == 1:
+			$Mouth.scale = Vector2(.4,.6)
+		elif mouthResult == 2:
+			$Mouth.scale = Vector2(.6,.4)
+			
+func _on_collision_checker_body_entered(body):
+	AttemptSound()
+
+
+
+func _on_grunt_sfx_finished():
+	$Mouth.scale = Vector2(.2,.2)
