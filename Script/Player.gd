@@ -3,7 +3,7 @@ extends RigidBody2D
 
 var Eyes = []
 
-var MoveSpeed = 400
+var MoveSpeed = 800
 var MaxLength = 1200
 @onready var TongueEndClass = preload("res://Prefab/TongueEnd.tscn")
 var TongueEndRef = null
