@@ -76,3 +76,4 @@ common/max_physics_steps_per_frame=16
 
 textures/canvas_textures/default_texture_filter=3
 textures/canvas_textures/default_texture_repeat=1
+environment/defaults/default_clear_color=Color(0.0112736, 0.137579, 0.171183, 1)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://e7yqjj2delfq"
+path="res://.godot/imported/Next to You.mp3-fe2bd74876484b762d01b55e7ec9f71f.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Next to You.mp3"
+dest_files=["res://.godot/imported/Next to You.mp3-fe2bd74876484b762d01b55e7ec9f71f.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

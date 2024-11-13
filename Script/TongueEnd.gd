@@ -35,6 +35,7 @@ func _process(delta):
 	
 func EmitParticle():
 	$CPUParticles2D.emitting = true
+	$AudioStreamPlayer2D.play()
 			
 func _physics_process(delta):
 	if bEnabled == false:

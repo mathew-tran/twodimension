@@ -16,6 +16,7 @@ var CurrentState = STATE.PLAYING
 
 func _ready():
 	StartGame()
+	$AudioStreamPlayer2D.play()
 	
 	
 func StartGame():

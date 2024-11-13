@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bs3v544mdd2bt"]
+[gd_scene load_steps=14 format=3 uid="uid://bs3v544mdd2bt"]
 
 [ext_resource type="Texture2D" uid="uid://u4nivdxwnk5" path="res://Art/FrogBody.png" id="1_1bxl4"]
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_sakr7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://csx4rujhe8qgh" path="res://Art/FrogMouth.png" id="4_yj127"]
 [ext_resource type="Texture2D" uid="uid://13j574ad77yb" path="res://Art/hand.png" id="5_xn0qb"]
 [ext_resource type="Texture2D" uid="uid://gb56sckd6pog" path="res://Art/Feet.png" id="6_sqfv7"]
+[ext_resource type="AudioStream" uid="uid://dnr6ev8j8ardl" path="res://Audio/pop.ogg" id="8_v12sl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fbm7h"]
 friction = 0.8
@@ -193,5 +194,9 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionChecker"]
 shape = SubResource("CircleShape2D_d57al")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_v12sl")
+volume_db = 10.0
 
 [connection signal="timeout" from="TongueCooldown" to="." method="_on_tongue_cooldown_timeout"]
