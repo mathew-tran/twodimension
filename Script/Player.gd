@@ -81,7 +81,7 @@ func _input(event):
 			angular_velocity = 0
 			$RayCast2D.enabled = false
 		else:
-			TongueEndRef.global_position = get_global_mouse_position()
+			TongueEndRef.global_position = to_global($RayCast2D.target_position)
 		
 func RevertTongue():
 	$RayCast2D.target_position = Vector2.ZERO
