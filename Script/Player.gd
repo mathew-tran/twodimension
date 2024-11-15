@@ -179,10 +179,18 @@ func Die():
 	FreezeBody()
 	if HasTongue():
 		TongueEndRef.queue_free()
-	PlaySound()
-	
+	$DeathSFX.play()
+	if $OnScreenChecker.is_on_screen() == false:
+		print("died off screen")
+		var instance = load("res://Prefab/PlayerDeathParticle.tscn").instantiate()
+		instance.Setup((Vector2.ZERO - global_position).normalized())
+		instance.global_position = global_position
+		get_parent().add_child(instance)
+		
+		
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", Vector2(2,2), .2)
+	$DeathParticle.emitting = true
 	await tween.finished
 	modulate = Color(0,0,0,0)
 	await get_tree().create_timer(.3).timeout
@@ -190,5 +198,5 @@ func Die():
 
 
 func _on_out_of_bounds_timer_timeout():
-	if global_position.y > 1700:
+	if global_position.y > 1500:
 		Die()

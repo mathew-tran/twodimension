@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://davb64s668rad"]
+
+[ext_resource type="Script" path="res://Script/PlayerDeathParticle.gd" id="1_j0jhw"]
+
+[node name="DeathParticle" type="CPUParticles2D"]
+amount = 50
+lifetime = 0.8
+speed_scale = 4.0
+direction = Vector2(-1, 0)
+spread = 3.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10000.0
+initial_velocity_max = 10000.0
+scale_amount_min = 70.0
+scale_amount_max = 140.0
+color = Color(0.852405, 0.949163, 0, 1)
+script = ExtResource("1_j0jhw")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
