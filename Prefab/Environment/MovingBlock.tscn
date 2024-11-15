@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpxfbkoon774f"]
+
+[ext_resource type="Script" path="res://Script/Environment/RotatingBlock.gd" id="1_7oukv"]
+[ext_resource type="Texture2D" uid="uid://h0w3uhas8qka" path="res://Art/Environment/TilePiece.png" id="2_ih70j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4ckg"]
+size = Vector2(240, 240)
+
+[node name="MovingBlock" type="RigidBody2D"]
+freeze = true
+constant_torque = 50.0
+script = ExtResource("1_7oukv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ih70j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j4ckg")

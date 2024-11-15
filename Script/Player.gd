@@ -98,12 +98,12 @@ func _input(event):
 		TongueEndRef.OwnerObject = self
 		TongueEndRef.MaxLength = MaxLength
 		get_parent().add_child(TongueEndRef)
+		
 		$AudioStreamPlayer2D.play()
 		if $RayCast2D.is_colliding():			
 			TongueEndRef.global_position = $RayCast2D.get_collision_point()
 			TongueEndRef.get_node("PinJoint2D").node_b = get_path()
-			TongueEndRef.get_node("ConnectionJoint").node_b = $RayCast2D.get_collider().get_path()
-			TongueEndRef.CollisionPosition = $RayCast2D.get_collision_point()
+			TongueEndRef.SetupInitialTracking($RayCast2D.get_collision_point(), $RayCast2D.get_collider().get_path())
 			angular_velocity = 0
 			$RayCast2D.enabled = false
 			TongueEndRef.EmitParticle()

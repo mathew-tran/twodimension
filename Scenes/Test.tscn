@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dajl1y42u1846"]
+[gd_scene load_steps=9 format=3 uid="uid://dajl1y42u1846"]
 
 [ext_resource type="PackedScene" uid="uid://bs3v544mdd2bt" path="res://Prefab/Player.tscn" id="1_ef0dd"]
 [ext_resource type="Script" path="res://Script/Level.gd" id="1_prlum"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bqwlitg3xcvbi" path="res://Prefab/Peg.tscn" id="3_ihwis"]
 [ext_resource type="PackedScene" uid="uid://cmg045qldjb6b" path="res://Prefab/GameManager.tscn" id="5_8i8bs"]
 [ext_resource type="Theme" uid="uid://bmylepva82ku0" path="res://Themes/HintText.tres" id="7_sjhpe"]
+[ext_resource type="PackedScene" uid="uid://bnwathjm0sh0k" path="res://Prefab/Environment/RotatingBlock.tscn" id="8_e2okk"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_prlum")
@@ -65,7 +66,6 @@ position = Vector2(2496, 960)
 [node name="Tile50" parent="." instance=ExtResource("2_yiuob")]
 position = Vector2(2624, 480)
 rotation = 2.35619
-scale = Vector2(10, 1)
 
 [node name="Tile17" parent="." instance=ExtResource("2_yiuob")]
 position = Vector2(2240, 960)
@@ -206,3 +206,5 @@ theme = ExtResource("7_sjhpe")
 text = "A/D to Move
 
 Left Mouse Click to Grapple"
+
+[node name="RigidBody2D" parent="." instance=ExtResource("8_e2okk")]

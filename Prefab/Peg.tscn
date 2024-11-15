@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://1io4nafvox78" path="res://Art/Peg/Peg_Ring.png" id="3_yqxkg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rbv35"]
-radius = 40.0
+radius = 37.0742
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_58lcd"]
 radius = 80.0

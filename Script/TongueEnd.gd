@@ -13,11 +13,24 @@ var MaxLength = 200
 
 var bEnabled = true
 var CollisionPosition = Vector2.ZERO
+var LocalOffset = Vector2.ZERO
+var LocalRotationOffset : float
 
-func GetOffsetPosition():
-	return CollisionPosition
+func SetupInitialTracking(trackedPosition, connectionJointPath):
+	$ConnectionJoint.node_b = connectionJointPath
+	CollisionPosition = trackedPosition
+	LocalOffset = GetSurface().to_local(CollisionPosition)
+	LocalRotationOffset = global_rotation - GetSurface().global_rotation
 	
+func UpdateTrackingPosition():
+	var scaledOffset = LocalOffset
+	var rotatedOffset = scaledOffset.rotated(GetSurface().global_rotation)
+	global_position = GetSurface().global_position + rotatedOffset
+	global_rotation = GetSurface().global_rotation + LocalRotationOffset
 
+func GetSurface():
+	return get_node($ConnectionJoint.node_b)
+	
 func _process(delta):
 	if bEnabled == false:
 		return
@@ -30,7 +43,6 @@ func _process(delta):
 			queue_free()
 	else:
 		$Line2D.points[0] = to_local(self.global_position)
-		print($ConnectionJoint.node_b)
 		if $PinJoint2D.node_b != OwnerObject.get_path() or get_node_or_null($ConnectionJoint.node_b) == null:
 			if $KillTimer.time_left == 0.0:
 				$KillTimer.start()
@@ -38,7 +50,7 @@ func _process(delta):
 		else:
 			$Line2D.default_color = Color.RED
 			$Sprite2D.modulate = Color.RED
-			global_position = GetOffsetPosition()
+			UpdateTrackingPosition()
 	
 func EmitParticle():
 	$CPUParticles2D.emitting = true
