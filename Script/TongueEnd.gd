@@ -12,6 +12,11 @@ var bInitialImpulse = false
 var MaxLength = 200
 
 var bEnabled = true
+var CollisionPosition = Vector2.ZERO
+
+func GetOffsetPosition():
+	return CollisionPosition
+	
 
 func _process(delta):
 	if bEnabled == false:
@@ -25,13 +30,15 @@ func _process(delta):
 			queue_free()
 	else:
 		$Line2D.points[0] = to_local(self.global_position)
-		if $PinJoint2D.node_b != OwnerObject.get_path():
+		print($ConnectionJoint.node_b)
+		if $PinJoint2D.node_b != OwnerObject.get_path() or get_node_or_null($ConnectionJoint.node_b) == null:
 			if $KillTimer.time_left == 0.0:
 				$KillTimer.start()
 				$Line2D.width *= .5
 		else:
 			$Line2D.default_color = Color.RED
 			$Sprite2D.modulate = Color.RED
+			global_position = GetOffsetPosition()
 	
 func EmitParticle():
 	$CPUParticles2D.emitting = true

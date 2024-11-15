@@ -70,4 +70,8 @@ stream = ExtResource("4_oi2i3")
 volume_db = 20.0
 pitch_scale = 1.2
 
+[node name="ConnectionJoint" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+angular_limit_enabled = true
+
 [connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

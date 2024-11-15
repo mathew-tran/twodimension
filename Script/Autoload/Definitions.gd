@@ -1,7 +1,6 @@
 extends Node
 
-var bIsDebug = false
-
+var bIsDebug = true
 
 func _ready():
 	if bIsDebug == false:
