@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dajl1y42u1846"]
+[gd_scene load_steps=12 format=3 uid="uid://dajl1y42u1846"]
 
 [ext_resource type="PackedScene" uid="uid://bs3v544mdd2bt" path="res://Prefab/Player.tscn" id="1_ef0dd"]
 [ext_resource type="Script" path="res://Script/Level.gd" id="1_prlum"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bnwathjm0sh0k" path="res://Prefab/Environment/RotatingBlock.tscn" id="8_e2okk"]
 [ext_resource type="PackedScene" uid="uid://cvoqhjs4512cn" path="res://Prefab/Environment/TestRamp.tscn" id="9_521vo"]
 [ext_resource type="PackedScene" uid="uid://hqqjbalynfyc" path="res://Prefab/Environment/Spike.tscn" id="10_cewj3"]
+[ext_resource type="PackedScene" uid="uid://bnirt3n4w78el" path="res://Prefab/Camera.tscn" id="10_f0fae"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_prlum")
@@ -219,8 +220,7 @@ Left Mouse Click to Grapple"
 [node name="TestRamp" parent="." instance=ExtResource("9_521vo")]
 position = Vector2(2144, 736)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.4, 0.4)
+[node name="Camera2D" parent="." instance=ExtResource("10_f0fae")]
 
 [node name="Spike" parent="." instance=ExtResource("10_cewj3")]
 position = Vector2(576, -128)

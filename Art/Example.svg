@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.71713665"
-     inkscape:cx="405.7804"
-     inkscape:cy="364.64459"
+     inkscape:zoom="4.0567375"
+     inkscape:cx="88.987764"
+     inkscape:cy="520.98515"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-7"
@@ -551,5 +551,25 @@
        inkscape:export-filename="Environment\TestRamp.png"
        inkscape:export-xdpi="512"
        inkscape:export-ydpi="512" />
+    <path
+       id="rect13"
+       style="fill:#9593a7;stroke-width:0.301205;stroke-linecap:round"
+       d="m 98.408058,144.25714 4.639592,13.8354 h -9.612552 z"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="Environment\Spike.png"
+       inkscape:export-xdpi="512"
+       inkscape:export-ydpi="512" />
+    <path
+       id="path13"
+       style="fill:#d7d6ce;stroke-width:0.249843;stroke-linecap:round"
+       d="m 98.393528,146.06297 3.848442,11.47619 h -7.973422 z"
+       sodipodi:nodetypes="cccc" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-dasharray:none"
+       id="path14"
+       cx="23.349018"
+       cy="144.26823"
+       rx="12.913702"
+       ry="14.087674" />
   </g>
 </svg>

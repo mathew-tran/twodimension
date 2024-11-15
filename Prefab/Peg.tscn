@@ -36,7 +36,7 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_58lcd")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.3
 one_shot = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
