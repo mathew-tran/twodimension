@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dajl1y42u1846"]
+[gd_scene load_steps=11 format=3 uid="uid://dajl1y42u1846"]
 
 [ext_resource type="PackedScene" uid="uid://bs3v544mdd2bt" path="res://Prefab/Player.tscn" id="1_ef0dd"]
 [ext_resource type="Script" path="res://Script/Level.gd" id="1_prlum"]
@@ -9,6 +9,7 @@
 [ext_resource type="Theme" uid="uid://bmylepva82ku0" path="res://Themes/HintText.tres" id="7_sjhpe"]
 [ext_resource type="PackedScene" uid="uid://bnwathjm0sh0k" path="res://Prefab/Environment/RotatingBlock.tscn" id="8_e2okk"]
 [ext_resource type="PackedScene" uid="uid://cvoqhjs4512cn" path="res://Prefab/Environment/TestRamp.tscn" id="9_521vo"]
+[ext_resource type="PackedScene" uid="uid://hqqjbalynfyc" path="res://Prefab/Environment/Spike.tscn" id="10_cewj3"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_prlum")
@@ -22,11 +23,16 @@ position = Vector2(832, 960)
 position = Vector2(960, 960)
 
 [node name="GoalPost" parent="." instance=ExtResource("2_1jjdj")]
-position = Vector2(1280, 1376)
+position = Vector2(-2208, -960)
 
 [node name="Tile46" parent="." instance=ExtResource("2_yiuob")]
-position = Vector2(1344, 1888)
-scale = Vector2(5, 5)
+position = Vector2(-2144, -672)
+
+[node name="Tile51" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(-2272, -672)
+
+[node name="Tile52" parent="." instance=ExtResource("2_yiuob")]
+position = Vector2(-2016, -672)
 
 [node name="Tile3" parent="." instance=ExtResource("2_yiuob")]
 position = Vector2(704, 960)
@@ -171,7 +177,7 @@ position = Vector2(512, -3296)
 position = Vector2(1216, 64)
 
 [node name="Player" parent="." instance=ExtResource("1_ef0dd")]
-position = Vector2(814, 448)
+position = Vector2(1568, 320)
 
 [node name="Peg" parent="." instance=ExtResource("3_ihwis")]
 position = Vector2(1056, 256)
@@ -212,3 +218,9 @@ Left Mouse Click to Grapple"
 
 [node name="TestRamp" parent="." instance=ExtResource("9_521vo")]
 position = Vector2(2144, 736)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
+
+[node name="Spike" parent="." instance=ExtResource("10_cewj3")]
+position = Vector2(576, -128)

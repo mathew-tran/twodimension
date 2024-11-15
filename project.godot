@@ -72,6 +72,7 @@ RightClick={
 [layer_names]
 
 2d_physics/layer_3="Frog"
+2d_physics/layer_8="NoTongue"
 2d_physics/layer_15="GOAL"
 
 [physics]

@@ -9,6 +9,7 @@ var MaxLength = 1200
 var TongueEndRef = null
 
 var bCanMove = true
+var bIsDead = false
 
 var SFX = [
 	"res://Audio/cute_01.ogg",
@@ -28,17 +29,20 @@ func _ready():
 	Eyes.append($Eye2)
 	Helper.GetGame().GameStateUpdate.connect(OnStateUpdate)
 
+func FreezeBody():
+	freeze = true
+	for child in get_children():
+		if child is RigidBody2D:
+			child.freeze = true
+			
+	if HasTongue():
+		TongueEndRef.bEnabled = false
+		
 func OnStateUpdate(state):
 	bCanMove = false
 	if state == Game.STATE.GAME_WIN:
-		freeze = true
-		for child in get_children():
-			if child is RigidBody2D:
-				child.freeze = true
-				
-		if HasTongue():
-			TongueEndRef.bEnabled = false
-		$GruntSFX.play()
+		FreezeBody()
+		PlaySound()
 	elif state == Game.STATE.GAME_LOSS:
 		freeze = false	
 		RevertTongue()
@@ -49,12 +53,12 @@ func UpdateEyes(delta):
 			eye.look_at(get_global_mouse_position())	
 	
 func _process(delta):
-	if bCanMove:
+	if CanMove():
 		UpdateEyes(delta)		
 		
 	
 func _physics_process(delta):
-	if bCanMove:
+	if CanMove():
 		Move(delta)
 		
 func IsConnected():
@@ -75,8 +79,12 @@ func CanUseTongue():
 func HasTongue():
 	return is_instance_valid(TongueEndRef)
 	
+	
+func CanMove():
+	return bCanMove and bIsDead == false
+	
 func _input(event):
-	if bCanMove == false:
+	if CanMove() == false:
 		return
 		
 	if event.is_action_pressed("Detach") and CanUseTongue():
@@ -141,19 +149,46 @@ func AttemptSound():
 		$GruntSFX.stream = load(SFX[0])
 		$GruntSFX.play()
 		$GruntTimer.wait_time = randf_range(20, 40)
-		$GruntTimer.start()
-		var mouthResult = randi_range(0 ,2)
-		if mouthResult == 0:
-			$Mouth.scale = Vector2(.4,.4)
-		elif mouthResult == 1:
-			$Mouth.scale = Vector2(.4,.6)
-		elif mouthResult == 2:
-			$Mouth.scale = Vector2(.6,.4)
+		PlaySound()
+	
+func PlaySound():
+	$GruntSFX.play()
+	$GruntTimer.start()
+	var mouthResult = randi_range(0 ,2)
+	if mouthResult == 0:
+		$Mouth.scale = Vector2(.4,.4)
+	elif mouthResult == 1:
+		$Mouth.scale = Vector2(.4,.6)
+	elif mouthResult == 2:
+		$Mouth.scale = Vector2(.6,.4)
 			
 func _on_collision_checker_body_entered(body):
 	AttemptSound()
-
-
+	if body.is_in_group("Kill"):
+		Die()
 
 func _on_grunt_sfx_finished():
 	$Mouth.scale = Vector2(.2,.2)
+
+func Die():
+	if bIsDead:
+		return
+		
+	bIsDead = true
+	
+	FreezeBody()
+	if HasTongue():
+		TongueEndRef.queue_free()
+	PlaySound()
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2(2,2), .2)
+	await tween.finished
+	modulate = Color(0,0,0,0)
+	await get_tree().create_timer(.3).timeout
+	get_tree().reload_current_scene()
+
+
+func _on_out_of_bounds_timer_timeout():
+	if global_position.y > 1700:
+		Die()
