@@ -23,15 +23,16 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="8.113475"
-     inkscape:cx="358.04634"
-     inkscape:cy="499.35447"
+     inkscape:zoom="0.71713665"
+     inkscape:cx="405.7804"
+     inkscape:cy="364.64459"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-7"
      inkscape:window-y="-7"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showgrid="false" />
   <defs
      id="defs1">
     <inkscape:path-effect
@@ -543,5 +544,12 @@
        inkscape:path-effect="#path-effect11"
        inkscape:original-d="m 98.809388,125.09334 c 0.09783,0.23914 0.195662,0.47828 0.293492,0.71743 0.532646,0.38046 1.06527,0.7609 1.59791,1.14136 0.0978,-0.13045 0.19566,-0.26089 0.29349,-0.39133 -0.55439,-0.60874 -1.108752,-1.21745 -1.663128,-1.82618 -0.206537,0.0435 -0.413065,0.087 -0.619596,0.13044 0.03261,0.0761 0.06522,0.15219 0.09783,0.22828 z"
        transform="translate(-0.03261036,-0.03261036)" />
+    <path
+       id="rect12"
+       style="fill:#9f6093;stroke:none;stroke-width:2.28434;stroke-linecap:round;stroke-dasharray:none"
+       d="m 120.57551,136.80974 c -2.45886,0 -4.43738,1.97968 -4.43738,4.43855 v 36.11756 c 0,2.45887 1.97852,4.43857 4.43738,4.43857 h 166.33132 c 2.45887,0 4.43857,-1.9797 4.43857,-4.43857 v -36.11756 c 0,-2.45887 -1.9797,-4.43855 -4.43857,-4.43855 h -17.29738 a 67.084013,23.17338 0 0 1 1.21588,4.36536 67.084013,23.17338 0 0 1 -67.08356,23.17374 67.084013,23.17338 0 0 1 -67.08359,-23.17374 67.084013,23.17338 0 0 1 1.32332,-4.36536 z"
+       inkscape:export-filename="Environment\TestRamp.png"
+       inkscape:export-xdpi="512"
+       inkscape:export-ydpi="512" />
   </g>
 </svg>
