@@ -72,6 +72,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_86twc")
 
 [node name="GameTime" parent="CanvasLayer/Panel/Panel" instance=ExtResource("2_3nmq8")]
+visible = false
 layout_mode = 1
 offset_left = -150.0
 offset_top = 18.0

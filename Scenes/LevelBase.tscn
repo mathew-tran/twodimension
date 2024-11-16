@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwo42hhdbiiub"]
+
+[ext_resource type="Script" path="res://Script/Level.gd" id="1_q07pa"]
+[ext_resource type="PackedScene" uid="uid://bnirt3n4w78el" path="res://Prefab/Camera.tscn" id="1_wlir5"]
+[ext_resource type="PackedScene" uid="uid://cmg045qldjb6b" path="res://Prefab/GameManager.tscn" id="2_frjm1"]
+[ext_resource type="PackedScene" uid="uid://bs3v544mdd2bt" path="res://Prefab/Player.tscn" id="3_yjhw7"]
+[ext_resource type="PackedScene" uid="uid://c1jfdqvyseess" path="res://Prefab/GoalPost.tscn" id="4_a17i1"]
+
+[node name="LevelBase" type="Node2D"]
+script = ExtResource("1_q07pa")
+
+[node name="Camera2D" parent="." instance=ExtResource("1_wlir5")]
+
+[node name="GameManager" parent="." instance=ExtResource("2_frjm1")]
+
+[node name="Player" parent="." instance=ExtResource("3_yjhw7")]
+position = Vector2(1632, 160)
+
+[node name="GoalPost" parent="." instance=ExtResource("4_a17i1")]
+position = Vector2(-1696, -576)
