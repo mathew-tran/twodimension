@@ -57,9 +57,38 @@ func UpdateEyes(delta):
 			eye.look_at(get_global_mouse_position())	
 	
 func _process(delta):
-	if CanMove():
-		UpdateEyes(delta)		
+	if CanMove() == false:
+		return
 		
+	UpdateEyes(delta)		
+		
+	if Input.is_action_just_released("Click"):
+		RevertTongue()
+		
+	if Input.is_action_pressed("Click") and CanUseTongue() and HasTongue() == false:
+		$TongueCooldown.start()
+		RevertTongue()
+		AttemptSound()
+		
+		var direction = to_local(get_global_mouse_position()).normalized()
+		$RayCast2D.target_position = direction * MaxLength
+		$RayCast2D.force_raycast_update()
+		
+		TongueEndRef = TongueEndClass.instantiate()
+		TongueEndRef.OwnerObject = self
+		TongueEndRef.MaxLength = MaxLength
+		get_parent().add_child(TongueEndRef)
+		
+		$AudioStreamPlayer2D.play()
+		if $RayCast2D.is_colliding():			
+			TongueEndRef.global_position = $RayCast2D.get_collision_point()
+			TongueEndRef.get_node("PinJoint2D").node_b = get_path()
+			TongueEndRef.SetupInitialTracking($RayCast2D.get_collision_point(), $RayCast2D.get_collider().get_path())
+			angular_velocity = 0
+			$RayCast2D.enabled = false
+			TongueEndRef.EmitParticle()
+		else:
+			TongueEndRef.global_position = to_global($RayCast2D.target_position)
 	
 func _physics_process(delta):
 	if CanMove():
@@ -94,33 +123,7 @@ func _input(event):
 	if event.is_action_pressed("Detach") and CanUseTongue():
 		RevertTongue()
 		
-	if Input.is_action_just_released("Click"):
-		RevertTongue()
-		
-	if Input.is_action_pressed("Click") and CanUseTongue() and HasTongue() == false:
-		$TongueCooldown.start()
-		RevertTongue()
-		AttemptSound()
-		
-		var direction = to_local(get_global_mouse_position()).normalized()
-		$RayCast2D.target_position = direction * MaxLength
-		$RayCast2D.force_raycast_update()
-		
-		TongueEndRef = TongueEndClass.instantiate()
-		TongueEndRef.OwnerObject = self
-		TongueEndRef.MaxLength = MaxLength
-		get_parent().add_child(TongueEndRef)
-		
-		$AudioStreamPlayer2D.play()
-		if $RayCast2D.is_colliding():			
-			TongueEndRef.global_position = $RayCast2D.get_collision_point()
-			TongueEndRef.get_node("PinJoint2D").node_b = get_path()
-			TongueEndRef.SetupInitialTracking($RayCast2D.get_collision_point(), $RayCast2D.get_collider().get_path())
-			angular_velocity = 0
-			$RayCast2D.enabled = false
-			TongueEndRef.EmitParticle()
-		else:
-			TongueEndRef.global_position = to_global($RayCast2D.target_position)
+
 		
 func RevertTongue():
 	$RayCast2D.target_position = Vector2.ZERO

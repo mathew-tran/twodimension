@@ -36,7 +36,7 @@ func _process(delta):
 		return
 	$Line2D.points[1] = to_local(OwnerObject.global_position)
 	if bIsKilled:
-		Progress += delta * 20
+		Progress += delta * 40
 		$Line2D.points[0] = to_local(lerp(self.global_position, OwnerObject.global_position, Progress))
 		$Sprite2D.visible = false
 		if Progress >= 1:
