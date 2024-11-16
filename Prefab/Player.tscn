@@ -205,6 +205,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="OutOfBoundsTimer" type="Timer" parent="."]
+wait_time = 0.1
 autostart = true
 
 [node name="DeathParticle" type="CPUParticles2D" parent="."]

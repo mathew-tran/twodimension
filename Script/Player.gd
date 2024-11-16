@@ -205,5 +205,5 @@ func Die():
 
 
 func _on_out_of_bounds_timer_timeout():
-	if global_position.y > 1500:
+	if global_position.y > 1600:
 		Die()
