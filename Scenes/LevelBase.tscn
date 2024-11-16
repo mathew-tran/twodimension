@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bs3v544mdd2bt" path="res://Prefab/Player.tscn" id="3_yjhw7"]
 [ext_resource type="PackedScene" uid="uid://c1jfdqvyseess" path="res://Prefab/GoalPost.tscn" id="4_a17i1"]
 
-[node name="LevelBase" type="Node2D"]
+[node name="LevelBase" type="Node2D" groups=["Level"]]
 script = ExtResource("1_q07pa")
 
 [node name="Camera2D" parent="." instance=ExtResource("1_wlir5")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmg045qldjb6b"]
+[gd_scene load_steps=12 format=3 uid="uid://cmg045qldjb6b"]
 
 [ext_resource type="Script" path="res://Script/Game.gd" id="1_8j5w0"]
 [ext_resource type="PackedScene" uid="uid://b0pjv7x6stdn1" path="res://Prefab/UI/GameTime.tscn" id="2_3nmq8"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://e7yqjj2delfq" path="res://Audio/Music/Next to You.mp3" id="4_vywnm"]
 [ext_resource type="Shader" path="res://Prefab/Camera.gdshader" id="5_kbxmf"]
 [ext_resource type="PackedScene" uid="uid://bj4yprm3x5tdd" path="res://Prefab/UI/PlayerPositionIndicator.tscn" id="5_pojre"]
+[ext_resource type="PackedScene" uid="uid://dp3l3foy08qoe" path="res://Prefab/UI/NextControl.tscn" id="6_bfuc2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bn8yv"]
 draw_center = false
@@ -82,12 +83,26 @@ offset_top = 18.0
 offset_right = 150.0
 offset_bottom = 118.0
 
-[node name="GameControls" type="VBoxContainer" parent="CanvasLayer/Panel/Panel"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 100.0
+[node name="GameControls" type="HBoxContainer" parent="CanvasLayer/Panel/Panel"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -154.0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
 
 [node name="Restart" parent="CanvasLayer/Panel/Panel/GameControls" instance=ExtResource("3_026wr")]
+layout_mode = 2
+
+[node name="Next" parent="CanvasLayer/Panel/Panel/GameControls" instance=ExtResource("6_bfuc2")]
 layout_mode = 2
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]

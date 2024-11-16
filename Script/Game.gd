@@ -13,11 +13,11 @@ enum STATE {
 }
 
 var CurrentState = STATE.PLAYING
+var NextScene : PackedScene
 
 func _ready():
 	StartGame()
 	$AudioStreamPlayer2D.play()
-	
 	
 func StartGame():
 	$Timer.start()
@@ -33,6 +33,8 @@ func WinGame():
 	Helper.GetLevel().SaveData(CurrentTime)
 	StopGame()
 	
+func SetNextScene(packedScene):
+	NextScene = packedScene
 	
 func LoseGame():
 	if CurrentState != STATE.PLAYING:
