@@ -581,5 +581,12 @@
        inkscape:export-filename="UI\PositionIndicator.png"
        inkscape:export-xdpi="512"
        inkscape:export-ydpi="512" />
+    <path
+       id="path15"
+       style="fill:#f04816;fill-opacity:1;stroke:#e11800;stroke-width:0.254769;stroke-linecap:round;stroke-dasharray:none"
+       d="m 95.379249,214.12821 4.30614,-2.44639 -4.30614,-2.44649 z"
+       inkscape:export-filename="UI\PositionIndicator.png"
+       inkscape:export-xdpi="512"
+       inkscape:export-ydpi="512" />
   </g>
 </svg>

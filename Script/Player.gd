@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+class_name Player
 
 var Eyes = []
 
@@ -10,6 +11,7 @@ var TongueEndRef = null
 
 var bCanMove = true
 var bIsDead = false
+
 
 var SFX = [
 	"res://Audio/cute_01.ogg",
@@ -29,6 +31,8 @@ func _ready():
 	Eyes.append($Eye2)
 	Helper.GetGame().GameStateUpdate.connect(OnStateUpdate)
 
+func GetScreenNotifier():
+	return $OnScreenChecker
 func FreezeBody():
 	freeze = true
 	for child in get_children():

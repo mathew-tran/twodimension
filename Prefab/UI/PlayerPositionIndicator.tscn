@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj4yprm3x5tdd"]
+
+[ext_resource type="Script" path="res://Script/UI/PlayerPositionIndicator.gd" id="1_qbx8j"]
+[ext_resource type="Texture2D" uid="uid://cekyegigx8stf" path="res://Art/UI/PositionIndicator.png" id="2_ubbi2"]
+
+[sub_resource type="Curve2D" id="Curve2D_1l4nf"]
+bake_interval = 50.0
+
+[node name="PlayerPositionIndicator" type="Path2D"]
+curve = SubResource("Curve2D_1l4nf")
+script = ExtResource("1_qbx8j")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_ubbi2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
