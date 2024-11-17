@@ -5,6 +5,7 @@ var CurrentTime = 0
 
 signal GameStateUpdate(state)
 signal TimeUpdate(amount)
+signal CoinIncremented
 
 enum STATE {
 	PLAYING,
@@ -48,3 +49,7 @@ func GetTime():
 func _on_timer_timeout():
 	CurrentTime += $Timer.wait_time
 	emit_signal("TimeUpdate", CurrentTime)
+	
+func IncrementCoin():
+	emit_signal("CoinIncremented")
+	

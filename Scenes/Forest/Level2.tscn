@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://due7afy1ik2qj"]
+[gd_scene load_steps=7 format=3 uid="uid://due7afy1ik2qj"]
 
 [ext_resource type="PackedScene" uid="uid://dwo42hhdbiiub" path="res://Scenes/LevelBase.tscn" id="1_p6u4i"]
 [ext_resource type="Texture2D" uid="uid://ds6ygvsekcqor" path="res://Art/Environment/ForestPieces/Piece4.png" id="3_2gdr1"]
 [ext_resource type="Texture2D" uid="uid://emw8ci063idq" path="res://Art/Environment/ForestPieces/Piece3.png" id="3_jeh0b"]
 [ext_resource type="Texture2D" uid="uid://b3iymstulf7su" path="res://Art/Environment/ForestPieces/Piece5.png" id="4_1r0dk"]
 [ext_resource type="PackedScene" uid="uid://hqqjbalynfyc" path="res://Prefab/Environment/Spike.tscn" id="5_1uod4"]
+[ext_resource type="PackedScene" uid="uid://citunw2w8q13s" path="res://Prefab/Pickups/Coin.tscn" id="6_suaxx"]
 
 [node name="LevelBase" instance=ExtResource("1_p6u4i")]
 
@@ -91,3 +92,12 @@ rotation = 1.42302
 [node name="Spike4" parent="." index="13" instance=ExtResource("5_1uod4")]
 position = Vector2(2080, 736)
 rotation = 1.8522
+
+[node name="Coin" parent="." index="14" instance=ExtResource("6_suaxx")]
+position = Vector2(1280, 1216)
+
+[node name="Coin2" parent="." index="15" instance=ExtResource("6_suaxx")]
+position = Vector2(-2080, -960)
+
+[node name="Coin3" parent="." index="16" instance=ExtResource("6_suaxx")]
+position = Vector2(288, -32)

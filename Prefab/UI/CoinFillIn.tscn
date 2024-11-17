@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4wtj7tay8qer"]
+
+[ext_resource type="Texture2D" uid="uid://c6iafvpmm8p71" path="res://Art/Pickups/Coin.png" id="1_5vxn1"]
+[ext_resource type="Script" path="res://Script/UI/CoinFillIn.gd" id="2_8krya"]
+
+[node name="Coin" type="TextureRect"]
+texture = ExtResource("1_5vxn1")
+script = ExtResource("2_8krya")

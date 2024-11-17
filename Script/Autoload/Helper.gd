@@ -17,3 +17,9 @@ func GetPlayer() -> Player:
 	if result:
 		return result[0]
 	return null
+
+func GetCoins():
+	var result = get_tree().get_nodes_in_group("Coin")
+	if result:
+		return result
+	return null

@@ -1,0 +1,125 @@
+[gd_scene load_steps=10 format=3 uid="uid://citunw2w8q13s"]
+
+[ext_resource type="Script" path="res://Script/Pickups/Coin.gd" id="1_5ilbw"]
+[ext_resource type="Texture2D" uid="uid://c6iafvpmm8p71" path="res://Art/Pickups/Coin.png" id="1_28i42"]
+[ext_resource type="Texture2D" uid="uid://cd40inhvn50u1" path="res://Art/Pickups/Light.png" id="2_rudk0"]
+[ext_resource type="AudioStream" uid="uid://d201memkdfoff" path="res://Audio/pickup.mp3" id="4_rndtv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ialg0"]
+radius = 128.0
+
+[sub_resource type="Animation" id="Animation_6kbsl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:texture_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.54]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_htuat"]
+resource_name = "animate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:texture_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.54, 2.0, 1.54]
+}
+
+[sub_resource type="Animation" id="Animation_310nq"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nkf3i"]
+_data = {
+"RESET": SubResource("Animation_6kbsl"),
+"animate": SubResource("Animation_htuat"),
+"death": SubResource("Animation_310nq")
+}
+
+[node name="Coin" type="Area2D" groups=["Coin"]]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_5ilbw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_28i42")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ialg0")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 1, 0.447059)
+texture = ExtResource("2_rudk0")
+texture_scale = 1.54
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nkf3i")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_rndtv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
