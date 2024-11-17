@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cfinwa1qqk5ga" path="res://Art/Environment/FlagLight.png" id="3_w2g7y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8rbt"]
-radius = 83.0
+radius = 51.0
 height = 554.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1qap"]

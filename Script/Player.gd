@@ -202,8 +202,3 @@ func Die():
 	modulate = Color(0,0,0,0)
 	await get_tree().create_timer(.3).timeout
 	get_tree().reload_current_scene()
-
-
-func _on_out_of_bounds_timer_timeout():
-	if global_position.y > 1600:
-		Die()

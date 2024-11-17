@@ -1,20 +1,59 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwo42hhdbiiub"]
+[gd_scene load_steps=10 format=3 uid="uid://dwo42hhdbiiub"]
 
 [ext_resource type="Script" path="res://Script/Level.gd" id="1_q07pa"]
 [ext_resource type="PackedScene" uid="uid://bnirt3n4w78el" path="res://Prefab/Camera.tscn" id="1_wlir5"]
 [ext_resource type="PackedScene" uid="uid://cmg045qldjb6b" path="res://Prefab/GameManager.tscn" id="2_frjm1"]
 [ext_resource type="PackedScene" uid="uid://bs3v544mdd2bt" path="res://Prefab/Player.tscn" id="3_yjhw7"]
 [ext_resource type="PackedScene" uid="uid://c1jfdqvyseess" path="res://Prefab/GoalPost.tscn" id="4_a17i1"]
+[ext_resource type="Shader" path="res://Shaders/DeathCollisionShader.gdshader" id="6_2ylv4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqbrq"]
+shader = ExtResource("6_2ylv4")
+shader_parameter/color = Color(0.721569, 0, 0.721569, 1)
+shader_parameter/OCTAVES = 20
+shader_parameter/enable_pixelation = true
+shader_parameter/pixelation_amount = 300
+shader_parameter/fog_direction = Vector2(1, 1)
+shader_parameter/scroll_noise_tex = false
+shader_parameter/noise_scroll_direction = Vector2(20, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3jtp"]
+bg_color = Color(0.000328712, 0, 0.149582, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cor4"]
+size = Vector2(12000, 3000)
 
 [node name="LevelBase" type="Node2D" groups=["Level"]]
 script = ExtResource("1_q07pa")
-
-[node name="Camera2D" parent="." instance=ExtResource("1_wlir5")]
 
 [node name="GameManager" parent="." instance=ExtResource("2_frjm1")]
 
 [node name="Player" parent="." instance=ExtResource("3_yjhw7")]
 position = Vector2(1632, 160)
 
+[node name="Camera2D" parent="Player" instance=ExtResource("1_wlir5")]
+
 [node name="GoalPost" parent="." instance=ExtResource("4_a17i1")]
 position = Vector2(-1696, -576)
+
+[node name="Panel" type="Panel" parent="."]
+top_level = true
+material = SubResource("ShaderMaterial_dqbrq")
+custom_minimum_size = Vector2(12000, 0)
+offset_left = -12672.0
+offset_top = 1696.0
+offset_right = -672.0
+offset_bottom = 4320.0
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_x3jtp")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="StaticBody2D" parent="Panel" groups=["Kill"]]
+position = Vector2(5952, 1472)
+collision_layer = 128
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Area2D"]
+visible = false
+shape = SubResource("RectangleShape2D_8cor4")
