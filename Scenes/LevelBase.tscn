@@ -32,6 +32,7 @@ script = ExtResource("1_q07pa")
 position = Vector2(1632, 160)
 
 [node name="Camera2D" parent="Player" instance=ExtResource("1_wlir5")]
+metadata/_edit_lock_ = true
 
 [node name="GoalPost" parent="." instance=ExtResource("4_a17i1")]
 position = Vector2(-1696, -576)

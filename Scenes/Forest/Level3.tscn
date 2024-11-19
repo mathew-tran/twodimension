@@ -1,0 +1,126 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfmjexm1n2715"]
+
+[ext_resource type="PackedScene" uid="uid://dwo42hhdbiiub" path="res://Scenes/LevelBase.tscn" id="1_qpu44"]
+[ext_resource type="PackedScene" uid="uid://fcs4bdlm0roi" path="res://Prefab/Levels/Forest/ForestPiece7.tscn" id="2_u8c6s"]
+[ext_resource type="PackedScene" uid="uid://bwmu7w47fthet" path="res://Prefab/Levels/Forest/ForestPiece8.tscn" id="3_3w1xe"]
+[ext_resource type="PackedScene" uid="uid://b7u1mr7nshx6f" path="res://Prefab/Levels/Forest/ForestPiece9.tscn" id="4_s1gfa"]
+[ext_resource type="PackedScene" uid="uid://dgcnyhs7mvqdv" path="res://Prefab/Levels/Forest/ForestPiece10.tscn" id="5_4gphr"]
+[ext_resource type="PackedScene" uid="uid://hqqjbalynfyc" path="res://Prefab/Environment/Spike.tscn" id="6_ct4n6"]
+[ext_resource type="PackedScene" uid="uid://citunw2w8q13s" path="res://Prefab/Pickups/Coin.tscn" id="7_50d1x"]
+[ext_resource type="PackedScene" uid="uid://di1khjsxjfkev" path="res://Prefab/Levels/Forest/ForestPiece11.tscn" id="8_fk7g5"]
+
+[node name="LevelBase" instance=ExtResource("1_qpu44")]
+position = Vector2(-128, -1344)
+
+[node name="Player" parent="." index="1"]
+position = Vector2(384, 96)
+
+[node name="GoalPost" parent="." index="2"]
+position = Vector2(544, 1984)
+
+[node name="Piece7" parent="." index="4" instance=ExtResource("2_u8c6s")]
+position = Vector2(576, -320)
+
+[node name="StaticBody2D" parent="." index="5" instance=ExtResource("3_3w1xe")]
+position = Vector2(-192, -1728)
+
+[node name="StaticBody2D2" parent="." index="6" instance=ExtResource("4_s1gfa")]
+position = Vector2(288, -544)
+
+[node name="StaticBody2D3" parent="." index="7" instance=ExtResource("5_4gphr")]
+position = Vector2(1120, -1440)
+
+[node name="Spike" parent="." index="8" instance=ExtResource("6_ct4n6")]
+position = Vector2(1536, -384)
+rotation = -1.57937
+
+[node name="Spike8" parent="." index="9" instance=ExtResource("6_ct4n6")]
+position = Vector2(3072, 0)
+rotation = -4.34496
+
+[node name="Spike9" parent="." index="10" instance=ExtResource("6_ct4n6")]
+position = Vector2(-1984, 128)
+rotation = -1.82595
+
+[node name="Spike10" parent="." index="11" instance=ExtResource("6_ct4n6")]
+position = Vector2(-2976, 480)
+rotation = -3.02646
+
+[node name="Spike11" parent="." index="12" instance=ExtResource("6_ct4n6")]
+position = Vector2(2144, 1824)
+rotation = -3.02646
+
+[node name="Spike7" parent="." index="13" instance=ExtResource("6_ct4n6")]
+position = Vector2(1728, -1632)
+rotation = -0.932188
+
+[node name="Spike2" parent="." index="14" instance=ExtResource("6_ct4n6")]
+position = Vector2(960, -1216)
+rotation = -2.59957
+
+[node name="Spike3" parent="." index="15" instance=ExtResource("6_ct4n6")]
+position = Vector2(224, -832)
+rotation = -0.424339
+
+[node name="Spike5" parent="." index="16" instance=ExtResource("6_ct4n6")]
+position = Vector2(-1024, -2048)
+rotation = 0.83732
+
+[node name="Spike4" parent="." index="17" instance=ExtResource("6_ct4n6")]
+position = Vector2(-832, -1344)
+rotation = 1.56807
+
+[node name="Spike6" parent="." index="18" instance=ExtResource("6_ct4n6")]
+position = Vector2(63.9999, -1760)
+rotation = 1.25168
+
+[node name="Coin" parent="." index="19" instance=ExtResource("7_50d1x")]
+position = Vector2(1440, -832)
+
+[node name="Coin2" parent="." index="20" instance=ExtResource("7_50d1x")]
+position = Vector2(-224, -2240)
+
+[node name="Coin3" parent="." index="21" instance=ExtResource("7_50d1x")]
+position = Vector2(832, -3424)
+
+[node name="Coin4" parent="." index="22" instance=ExtResource("7_50d1x")]
+position = Vector2(576, 2752)
+
+[node name="StaticBody2D4" parent="." index="23" instance=ExtResource("8_fk7g5")]
+position = Vector2(-768, -2816)
+
+[node name="StaticBody2D5" parent="." index="24" instance=ExtResource("8_fk7g5")]
+position = Vector2(2592, -2400)
+rotation = -1.3586
+
+[node name="StaticBody2D13" parent="." index="25" instance=ExtResource("8_fk7g5")]
+position = Vector2(832, -3072)
+rotation = -1.3586
+
+[node name="StaticBody2D6" parent="." index="26" instance=ExtResource("8_fk7g5")]
+position = Vector2(3776, 384)
+rotation = -3.70795
+
+[node name="StaticBody2D12" parent="." index="27" instance=ExtResource("8_fk7g5")]
+position = Vector2(3488, -928)
+rotation = -3.70795
+
+[node name="StaticBody2D7" parent="." index="28" instance=ExtResource("8_fk7g5")]
+position = Vector2(2144, 1600)
+rotation = -3.70795
+
+[node name="StaticBody2D8" parent="." index="29" instance=ExtResource("8_fk7g5")]
+position = Vector2(576, 2368)
+rotation = -3.70795
+
+[node name="StaticBody2D9" parent="." index="30" instance=ExtResource("8_fk7g5")]
+position = Vector2(-2176, 1216)
+rotation = -6.47891
+
+[node name="StaticBody2D10" parent="." index="31" instance=ExtResource("8_fk7g5")]
+position = Vector2(-2976, 320)
+rotation = -9.30611
+
+[node name="StaticBody2D11" parent="." index="32" instance=ExtResource("8_fk7g5")]
+position = Vector2(-2336, -832)
+rotation = -9.30611
