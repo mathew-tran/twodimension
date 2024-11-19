@@ -9,7 +9,14 @@ offset_top = 28.0
 offset_right = 70.0
 offset_bottom = 68.0
 scale = Vector2(0.2, 0.2)
+theme_override_constants/separation = 30
 script = ExtResource("1_rtcsx")
 
 [node name="Coin" parent="." instance=ExtResource("2_dlny5")]
+layout_mode = 2
+
+[node name="Coin2" parent="." instance=ExtResource("2_dlny5")]
+layout_mode = 2
+
+[node name="Coin3" parent="." instance=ExtResource("2_dlny5")]
 layout_mode = 2
