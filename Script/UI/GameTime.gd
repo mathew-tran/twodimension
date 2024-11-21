@@ -5,6 +5,7 @@ func _ready():
 	Helper.GetGame().TimeUpdate.connect(OnTimeUpdate)
 	Helper.GetGame().GameStateUpdate.connect(OnStateUpdate)
 	
+	
 func OnTimeUpdate(amount):
 	text = str(amount).pad_decimals(2)
 

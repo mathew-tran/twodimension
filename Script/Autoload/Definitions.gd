@@ -1,8 +1,8 @@
 extends Node
 
-var bIsDebug = false
+var bIsDebug = true
 
-var DebugLevel = "res://Scenes/Forest/Level3.tscn"
+var DebugLevel = "res://Scenes/Forest/Level4.tscn"
 
 func _ready():
 	if bIsDebug == false: 
