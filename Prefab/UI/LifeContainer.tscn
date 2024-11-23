@@ -1,12 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgax1pqh03hrh"]
+[gd_scene load_steps=6 format=3 uid="uid://dgax1pqh03hrh"]
 
 [ext_resource type="Texture2D" uid="uid://c3ptu6wquppaa" path="res://Art/UI/Lives.png" id="1_b8yj3"]
 [ext_resource type="Script" path="res://Script/UI/LifeContainer.gd" id="1_bbgtr"]
+
+[sub_resource type="Animation" id="Animation_ibnex"]
+resource_name = "anim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pyyd5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qb60s"]
+_data = {
+"RESET": SubResource("Animation_pyyd5"),
+"anim": SubResource("Animation_ibnex")
+}
 
 [node name="LifeContainer" type="HBoxContainer"]
 custom_minimum_size = Vector2(300, 60)
 offset_right = 40.0
 offset_bottom = 40.0
+pivot_offset = Vector2(150, 30)
 script = ExtResource("1_bbgtr")
 
 [node name="Control" type="Control" parent="."]
@@ -22,3 +59,9 @@ expand_mode = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "x3"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qb60s")
+}
+speed_scale = 4.0

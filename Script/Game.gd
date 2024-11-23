@@ -21,13 +21,17 @@ func _ready():
 	$AudioStreamPlayer2D.play()
 	GameData.StartLevel()
 	GameData.LifeAmountChange.connect(OnLifeAmountChange)
+	GameData.LifeIncreased.connect(OnLifeIncreased)
 	
 func OnLifeAmountChange(amount):
 	if GameData.IsGameOver():
 		var tween = get_tree().create_tween()
 		tween.tween_property($AudioStreamPlayer2D, "volume_db", -30, .5)
 		tween.tween_property($AudioStreamPlayer2D, "pitch_scale", 0.1, .2)
-		
+
+func OnLifeIncreased():
+	$AudioStreamPlayer2D2.play()
+	
 func StartGame():
 	$Timer.start()
 	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmg045qldjb6b"]
+[gd_scene load_steps=6 format=3 uid="uid://cmg045qldjb6b"]
 
 [ext_resource type="Script" path="res://Script/Game.gd" id="1_8j5w0"]
 [ext_resource type="PackedScene" uid="uid://bgbx2y7oevjxk" path="res://Prefab/UI/GameUI.tscn" id="3_d35u6"]
 [ext_resource type="AudioStream" uid="uid://e7yqjj2delfq" path="res://Audio/Music/Next to You.mp3" id="4_vywnm"]
+[ext_resource type="AudioStream" uid="uid://du52rcgf6fnu7" path="res://Audio/eat_03.ogg" id="5_jsad7"]
 [ext_resource type="PackedScene" uid="uid://bj4yprm3x5tdd" path="res://Prefab/UI/PlayerPositionIndicator.tscn" id="5_pojre"]
 
 [node name="GameManager" type="Node" groups=["Game"]]
@@ -22,5 +23,9 @@ visible = false
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_vywnm")
 volume_db = 5.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jsad7")
+volume_db = -10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

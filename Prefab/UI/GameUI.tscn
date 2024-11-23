@@ -125,18 +125,19 @@ text = "0
 horizontal_alignment = 2
 script = ExtResource("7_cpt82")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
+[node name="LifeContainer" parent="." instance=ExtResource("7_f47q5")]
+layout_mode = 2
 offset_left = 28.0
 offset_top = 39.0
 offset_right = 328.0
-offset_bottom = 163.0
-theme_override_constants/separation = 20
+offset_bottom = 99.0
 
-[node name="LifeContainer" parent="VBoxContainer" instance=ExtResource("7_f47q5")]
-layout_mode = 2
-
-[node name="CoinContainer" parent="VBoxContainer" instance=ExtResource("6_gpng3")]
+[node name="CoinContainer" parent="." instance=ExtResource("6_gpng3")]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
+offset_left = 28.0
+offset_top = 113.0
+offset_right = 328.0
+offset_bottom = 163.0
+scale = Vector2(1, 1)
 theme_override_constants/separation = 10

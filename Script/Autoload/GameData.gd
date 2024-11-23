@@ -8,6 +8,7 @@ var PointsToMaxLife = 1000
 
 signal LifeAmountChange(amount)
 signal PointsChange(amount)
+signal LifeIncreased
 
 func IncreasePoints(amount, position):
 	TotalPoints += amount
@@ -20,6 +21,7 @@ func IncreasePoints(amount, position):
 		CurrentPointsToMaxLife -= PointsToMaxLife
 		Lives += 1
 		LifeAmountChange.emit(Lives)
+		LifeIncreased.emit()
 	
 	PointsChange.emit(TotalPoints)
 	
