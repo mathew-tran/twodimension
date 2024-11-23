@@ -6,10 +6,16 @@ var bStayUp = false
 
 func _ready():
 	Helper.GetGame().GameStateUpdate.connect(OnComplete)
+	GameData.LifeAmountChange.connect(OnLifeAmountChange)
 	visible = false
 	bEnabled = true
 	max_value = $Timer.wait_time
 	
+func OnLifeAmountChange(amount):
+	if GameData.IsGameOver():
+		await get_tree().create_timer(1).timeout
+		OnComplete(0)
+		
 func OnComplete(_state):
 	visible = true	
 	bStayUp = true

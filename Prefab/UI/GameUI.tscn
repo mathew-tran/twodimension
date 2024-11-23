@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgbx2y7oevjxk"]
+[gd_scene load_steps=14 format=3 uid="uid://bgbx2y7oevjxk"]
 
 [ext_resource type="Shader" path="res://Prefab/Camera.gdshader" id="1_8u0jr"]
 [ext_resource type="Script" path="res://Script/UI/GameUI.gd" id="1_qvghr"]
 [ext_resource type="PackedScene" uid="uid://b0pjv7x6stdn1" path="res://Prefab/UI/GameTime.tscn" id="2_mkgvn"]
+[ext_resource type="PackedScene" uid="uid://12ed5yk7oie" path="res://Prefab/UI/GameOverPanel.tscn" id="2_ufypy"]
 [ext_resource type="PackedScene" uid="uid://dgj34h1nuu70p" path="res://Prefab/UI/RestartControl.tscn" id="3_vvjpk"]
 [ext_resource type="PackedScene" uid="uid://dp3l3foy08qoe" path="res://Prefab/UI/NextControl.tscn" id="4_gpwj1"]
 [ext_resource type="PackedScene" uid="uid://djfi77wf5r0um" path="res://Prefab/UI/CoinContainer.tscn" id="6_gpng3"]
@@ -55,6 +56,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_3eorq")
 script = ExtResource("1_qvghr")
+
+[node name="SlideDownPanel" parent="." instance=ExtResource("2_ufypy")]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1, 1e-05)
 
 [node name="Panel" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_qevta")
