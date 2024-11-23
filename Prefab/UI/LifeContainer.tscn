@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgax1pqh03hrh"]
+
+[ext_resource type="Texture2D" uid="uid://c3ptu6wquppaa" path="res://Art/UI/Lives.png" id="1_b8yj3"]
+[ext_resource type="Script" path="res://Script/UI/LifeContainer.gd" id="1_bbgtr"]
+
+[node name="LifeContainer" type="HBoxContainer"]
+custom_minimum_size = Vector2(300, 60)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bbgtr")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_b8yj3")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "x3"

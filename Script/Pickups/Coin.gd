@@ -6,6 +6,7 @@ func _ready():
 
 func _on_body_entered(body):
 	$CollisionShape2D.queue_free()
+	GameData.IncreasePoints(250)
 	$AudioStreamPlayer2D.play()
 	$AnimationPlayer.play("death")
 	Helper.GetGame().IncrementCoin()

@@ -31,4 +31,5 @@ func _input(event):
 				visible = false
 
 func _on_timer_timeout():
-	get_tree().reload_current_scene()
+	GameData.Setup()
+	get_tree().change_scene_to_packed(load("res://Scenes/Forest/Level1.tscn"))

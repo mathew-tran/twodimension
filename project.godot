@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Helper="*res://Script/Autoload/Helper.gd"
 Definitions="*res://Script/Autoload/Definitions.gd"
+GameData="*res://Script/Autoload/GameData.gd"
 
 [display]
 

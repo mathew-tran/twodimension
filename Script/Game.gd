@@ -19,6 +19,7 @@ var NextScene : PackedScene
 func _ready():
 	StartGame()
 	$AudioStreamPlayer2D.play()
+	GameData.StartLevel()
 	
 func StartGame():
 	$Timer.start()

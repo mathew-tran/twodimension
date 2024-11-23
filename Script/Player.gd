@@ -201,4 +201,10 @@ func Die():
 	await tween.finished
 	modulate = Color(0,0,0,0)
 	await get_tree().create_timer(.3).timeout
-	get_tree().reload_current_scene()
+	GameData.RemoveLife()
+	
+	if GameData.IsGameOver():
+		print("Game Over")
+	else:
+		get_tree().reload_current_scene()
+	

@@ -6,5 +6,6 @@ func _ready():
 	$AnimationPlayer.play("pulse")
 
 func _on_area_2d_area_entered(area):
+	GameData.IncreasePoints(1000)
 	Helper.GetGame().WinGame()
 	Helper.GetGame().SetNextScene(NextLevel)
