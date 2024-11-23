@@ -31,7 +31,6 @@ func RemoveLife():
 	if TotalPoints <= 0:
 		TotalPoints = 0
 	
-	CurrentPointsToMaxLife = TotalPoints % 1000
 	
 	LifeAmountChange.emit(Lives)
 	
