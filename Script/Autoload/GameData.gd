@@ -27,6 +27,12 @@ func IncreasePoints(amount, position):
 	
 func RemoveLife():
 	Lives -= 1
+	TotalPoints -= 200
+	if TotalPoints <= 0:
+		TotalPoints = 0
+	
+	CurrentPointsToMaxLife = TotalPoints % 1000
+	
 	LifeAmountChange.emit(Lives)
 	
 func IsGameOver():
