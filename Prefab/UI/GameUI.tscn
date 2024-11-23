@@ -67,7 +67,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(1, 1e-05)
 
 [node name="Panel" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_qevta")

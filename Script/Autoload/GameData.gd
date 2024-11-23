@@ -9,9 +9,13 @@ var PointsToMaxLife = 1000
 signal LifeAmountChange(amount)
 signal PointsChange(amount)
 
-func IncreasePoints(amount):
+func IncreasePoints(amount, position):
 	TotalPoints += amount
 	CurrentPointsToMaxLife += amount
+	var instance = load("res://Prefab/UI/PointsText.tscn").instantiate()
+	instance.Setup(amount)
+	instance.global_position = position
+	add_child(instance)
 	while CurrentPointsToMaxLife >= PointsToMaxLife:
 		CurrentPointsToMaxLife -= PointsToMaxLife
 		Lives += 1
