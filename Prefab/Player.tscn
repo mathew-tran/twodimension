@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bs3v544mdd2bt"]
+[gd_scene load_steps=17 format=3 uid="uid://bs3v544mdd2bt"]
 
 [ext_resource type="Texture2D" uid="uid://u4nivdxwnk5" path="res://Art/FrogBody.png" id="1_1bxl4"]
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_sakr7"]
@@ -13,7 +13,7 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fbm7h"]
 friction = 0.8
-bounce = 0.2
+bounce = 0.4
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iyk4d"]
 radius = 72.0
@@ -27,6 +27,10 @@ height = 44.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d57al"]
 radius = 69.0
+
+[sub_resource type="Curve" id="Curve_s34fp"]
+_data = [Vector2(0, 0.901487), 0.0, 0.0, 0, 0, Vector2(0.755932, 0.187732), 0.0, 0.0, 0, 0, Vector2(0.972881, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Player" type="RigidBody2D" groups=["Player"]]
 z_index = 5
@@ -224,6 +228,18 @@ color = Color(0.823947, 0.967076, 0, 1)
 stream = ExtResource("10_yfmyh")
 
 [node name="OnScreenChecker" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+amount = 160
+lifetime = 2.0
+speed_scale = 2.0
+emission_shape = 1
+emission_sphere_radius = 30.0
+gravity = Vector2(0, 0)
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_s34fp")
 
 [connection signal="timeout" from="TongueCooldown" to="." method="_on_tongue_cooldown_timeout"]
 [connection signal="body_entered" from="CollisionChecker" to="." method="_on_collision_checker_body_entered"]

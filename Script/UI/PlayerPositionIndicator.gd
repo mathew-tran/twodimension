@@ -10,6 +10,7 @@ func CreatePoints():
 	var windowSize = WindowSize
 	var camera = get_viewport().get_camera_2d()
 	visible = false
+	
 	if camera:
 		var center_offset = camera.position
 		windowSize /= camera.zoom
@@ -36,8 +37,9 @@ func _init():
 func _ready():
 	curve.bake_interval = 40.0
 	CreatePoints()
-	Helper.GetPlayer().GetScreenNotifier().screen_entered.connect(OnHide)
-	Helper.GetPlayer().GetScreenNotifier().screen_exited.connect(OnShow)
+	#
+	#Helper.GetPlayer().GetScreenNotifier().screen_entered.connect(OnHide)
+	#Helper.GetPlayer().GetScreenNotifier().screen_exited.connect(OnShow)
 	
 func OnShow():
 	CreatePoints()
