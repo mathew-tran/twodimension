@@ -1,6 +1,6 @@
 extends Node
 
-var bIsDebug = true
+var bIsDebug = false
 
 var DebugLevel = "res://Scenes/Forest/Level4.tscn"
 

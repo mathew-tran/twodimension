@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://dja7nopb0ne17"]
+
+[ext_resource type="Shader" path="res://Prefab/Camera.gdshader" id="1_t4ukk"]
+[ext_resource type="Script" path="res://Script/UI/PlayButton.gd" id="2_dwxmp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ad2ui"]
+shader = ExtResource("1_t4ukk")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_ad2ui")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+offset_left = 178.0
+offset_top = 164.0
+offset_right = 673.0
+offset_bottom = 233.0
+theme_override_font_sizes/font_size = 50
+text = "Freddie Frog's Quest"
+
+[node name="Button" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_left = 199.0
+offset_top = 710.0
+offset_right = 399.0
+offset_bottom = 810.0
+theme_override_font_sizes/font_size = 60
+text = "PLAY"
+script = ExtResource("2_dwxmp")
+
+[node name="Credits" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 1204.0
+offset_top = 231.0
+offset_right = 1902.0
+offset_bottom = 670.0
+text = "Game Design / Art / Programming
+Mathew Tran
+
+Music:
+Joth - Next to You (https://opengameart.org/content/next-to-you)
+
+SFX:
+farfadet46 - Bubble Pop SFX (https://opengameart.org/content/bubbles-pop)
+rubberduck - CreatureSFX (https://opengameart.org/content/80-cc0-creature-sfx)
+Brandon Morris - Completion-Sound (https://opengameart.org/content/completion-sound)
+
+
+Camera Shader
+c64cosmin
+
+Fog Shader
+Gonkee (https://github.com/Gonkee/Gonkees-Shaders/blob/master/fog.shader)
+"
+
+[connection signal="button_up" from="Panel/Button" to="Panel/Button" method="_on_button_up"]

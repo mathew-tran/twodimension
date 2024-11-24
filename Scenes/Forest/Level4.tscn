@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://swek8s3vchx"]
+[gd_scene load_steps=9 format=3 uid="uid://swek8s3vchx"]
 
 [ext_resource type="PackedScene" uid="uid://dwo42hhdbiiub" path="res://Scenes/LevelBase.tscn" id="1_44lqs"]
 [ext_resource type="PackedScene" uid="uid://cums5alrvf1qs" path="res://Prefab/Levels/Forest/ForestPiece12.tscn" id="2_imda8"]
+[ext_resource type="PackedScene" uid="uid://c610vn0bwrx7k" path="res://Scenes/GameWin.tscn" id="2_p0b2p"]
 [ext_resource type="PackedScene" uid="uid://dgcnyhs7mvqdv" path="res://Prefab/Levels/Forest/ForestPiece10.tscn" id="3_kk6gq"]
 [ext_resource type="PackedScene" uid="uid://b7u1mr7nshx6f" path="res://Prefab/Levels/Forest/ForestPiece9.tscn" id="4_w4vq3"]
 [ext_resource type="PackedScene" uid="uid://hqqjbalynfyc" path="res://Prefab/Environment/Spike.tscn" id="5_l3qua"]
@@ -15,6 +16,7 @@ position = Vector2(576, -17600)
 
 [node name="GoalPost" parent="." index="2"]
 position = Vector2(-736, 960)
+NextLevel = ExtResource("2_p0b2p")
 
 [node name="StaticBody2D" parent="." index="4" instance=ExtResource("2_imda8")]
 position = Vector2(128, -2560)

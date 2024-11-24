@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://c610vn0bwrx7k"]
+
+[ext_resource type="Shader" path="res://Prefab/Camera.gdshader" id="1_4wu5y"]
+[ext_resource type="Script" path="res://Script/UI/ReturnToTitleButton.gd" id="2_dwd1k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ad2ui"]
+shader = ExtResource("1_4wu5y")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_ad2ui")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -34.5
+offset_right = 273.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "THANKS FOR PLAYING!"
+
+[node name="Button" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 136.0
+offset_right = 150.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "RETURN TO TITLE"
+script = ExtResource("2_dwd1k")
+
+[connection signal="button_up" from="Panel/Button" to="Panel/Button" method="_on_button_up"]
